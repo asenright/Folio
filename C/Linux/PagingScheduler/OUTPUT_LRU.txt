@@ -1,0 +1,16 @@
+Initializing with 8 pages, 4 frames, 12 requests
+Using LRU Algorithm:
+	Page 4 loaded into frame 3.
+	Page 3 loaded into frame 2.
+	Page 4 already in frame 3.
+	Page 6 loaded into frame 1.
+	Page 1 loaded into frame 0.
+	Page 6 already in frame 1.
+	Page 4 already in frame 3.
+	Page 3 unloaded from frame 2. Page 5 loaded into frame 2. 
+	Page 1 unloaded from frame 0. Page 2 loaded into frame 0. 
+	Page 4 already in frame 3.
+	Page 6 already in frame 1.
+	Page 5 unloaded from frame 2. Page 1 loaded into frame 2. 
+Number of faults: 7
+Exiting main...
