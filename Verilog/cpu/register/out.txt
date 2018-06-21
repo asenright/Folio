@@ -1,0 +1,354 @@
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Nov 29 14:45 2017
+VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+
+#                   0
+rst = 1
+we1 = x | wa1 = x | wd1 = xxxx | first_byte_only = 0
+we2 = x | wa2 = x | wd2 = xxxx 
+ra1 = x | rd1 = 0000
+ra2 = x | rd2 = 0000
+rd15 = 0000
+
+#                   5
+rst = 1
+we1 = x | wa1 = x | wd1 = xxxx | first_byte_only = 0
+we2 = x | wa2 = x | wd2 = xxxx 
+ra1 = x | rd1 = xxxx
+ra2 = x | rd2 = xxxx
+rd15 = xxxx
+Reset issued; register values immediately post-reset: 
+#                  10
+rst = 0
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 0 | rd1 = 0f00
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  20
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 0 | rd1 = 0f00
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  30
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 1 | rd1 = 0f00
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  35
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 1 | rd1 = 0050
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  40
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 2 | rd1 = 0050
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  45
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 2 | rd1 = ff0f
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  50
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 3 | rd1 = ff0f
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  55
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 3 | rd1 = f0ff
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  60
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 4 | rd1 = f0ff
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  65
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 4 | rd1 = 0040
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  70
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 5 | rd1 = 0040
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  75
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 5 | rd1 = 6666
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  80
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 6 | rd1 = 6666
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  85
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 6 | rd1 = 00ff
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  90
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 7 | rd1 = 00ff
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                  95
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 7 | rd1 = ff88
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 100
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 8 | rd1 = ff88
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 105
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 8 | rd1 = 0000
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 110
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 9 | rd1 = 0000
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 120
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = a | rd1 = 0000
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 130
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = b | rd1 = 0000
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 135
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = b | rd1 = cccc
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 140
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = c | rd1 = cccc
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 145
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = c | rd1 = 0002
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 150
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = d | rd1 = 0002
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 155
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = d | rd1 = 0000
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 160
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = e | rd1 = 0000
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 170
+rst = 1
+we1 = 0 | wa1 = 0 | wd1 = 0000 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = f | rd1 = 0000
+ra2 = 0 | rd2 = 0f00
+rd15 = 0000
+
+#                 220
+rst = 1
+we1 = 1 | wa1 = d | wd1 = ffff | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 0 | rd1 = 0000
+ra2 = d | rd2 = 0f00
+rd15 = 0000
+
+#                 225
+rst = 1
+we1 = 1 | wa1 = d | wd1 = ffff | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 0 | rd1 = 0f00
+ra2 = d | rd2 = ffff
+rd15 = 0000
+
+#                 230
+rst = 1
+we1 = 1 | wa1 = d | wd1 = aaaa | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 0 | rd1 = 0f00
+ra2 = d | rd2 = ffff
+rd15 = 0000
+
+#                 235
+rst = 1
+we1 = 1 | wa1 = d | wd1 = aaaa | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 0 | rd1 = 0f00
+ra2 = d | rd2 = aaaa
+rd15 = 0000
+
+#                 240
+rst = 1
+we1 = 1 | wa1 = d | wd1 = 0055 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 0 | rd1 = 0f00
+ra2 = d | rd2 = aaaa
+rd15 = 0000
+
+#                 245
+rst = 1
+we1 = 1 | wa1 = d | wd1 = 0055 | first_byte_only = 0
+we2 = 0 | wa2 = f | wd2 = 0000 
+ra1 = 0 | rd1 = 0f00
+ra2 = d | rd2 = 0055
+rd15 = 0000
+
+#                 250
+rst = 1
+we1 = 1 | wa1 = d | wd1 = 0055 | first_byte_only = 0
+we2 = 1 | wa2 = f | wd2 = afaf 
+ra1 = 0 | rd1 = 0f00
+ra2 = d | rd2 = 0055
+rd15 = 0000
+
+#                 255
+rst = 1
+we1 = 1 | wa1 = d | wd1 = 0055 | first_byte_only = 0
+we2 = 1 | wa2 = f | wd2 = afaf 
+ra1 = 0 | rd1 = 0f00
+ra2 = d | rd2 = 0055
+rd15 = afaf
+
+#                 260
+rst = 1
+we1 = 1 | wa1 = 8 | wd1 = ffff | first_byte_only = 1
+we2 = 1 | wa2 = f | wd2 = afaf 
+ra1 = 0 | rd1 = 0f00
+ra2 = 8 | rd2 = 0055
+rd15 = afaf
+
+#                 265
+rst = 1
+we1 = 1 | wa1 = 8 | wd1 = ffff | first_byte_only = 1
+we2 = 1 | wa2 = f | wd2 = afaf 
+ra1 = 0 | rd1 = 0f00
+ra2 = 8 | rd2 = 00ff
+rd15 = afaf
+
+#                 310
+rst = 0
+we1 = 1 | wa1 = 8 | wd1 = ffff | first_byte_only = 1
+we2 = 1 | wa2 = f | wd2 = afaf 
+ra1 = 0 | rd1 = 0f00
+ra2 = 8 | rd2 = 0000
+rd15 = 0000
+
+#                 320
+rst = 1
+we1 = 1 | wa1 = 8 | wd1 = ffff | first_byte_only = 1
+we2 = 1 | wa2 = f | wd2 = afaf 
+ra1 = 0 | rd1 = 0f00
+ra2 = 8 | rd2 = 0000
+rd15 = 0000
+
+#                 325
+rst = 1
+we1 = 1 | wa1 = 8 | wd1 = ffff | first_byte_only = 1
+we2 = 1 | wa2 = f | wd2 = afaf 
+ra1 = 0 | rd1 = 0f00
+ra2 = 8 | rd2 = 00ff
+rd15 = afaf
+$finish called from file "register_file_fixture.v", line 92.
+$finish at simulation time                  500
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 500
+CPU Time:      0.340 seconds;       Data structure size:   0.0Mb
+Wed Nov 29 14:45:15 2017

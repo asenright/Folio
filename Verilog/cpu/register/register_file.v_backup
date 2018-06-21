@@ -1,0 +1,99 @@
+//Scalable Dual-Read Dual-Write Register, by Andrew Enright
+//This register has  
+//Written as part of a design for CPE142, CSUS, Fall 2017.
+//A register file module, with scalable register size
+//This file will have a number of registers = 2^address_lines.
+module register_file_dr_dw
+ (
+	input wire [15:0]	 		write_data_1,
+						write_data_2,
+	input wire [3:0]			write_addr_1,
+						write_addr_2, 
+						read_addr_1, 
+						read_addr_2, 
+	input wire				clk, 
+						rst, 
+						write_enable_1,
+						write_enable_2,
+	output reg [15:0]	 		read_data_1, 
+						read_data_2,
+						read_data_15);
+	
+//An n-1 bit, 2^^address lines size array of registers.
+reg [15:0] registers [15:0];
+
+initial 
+begin
+	read_data_1 = 16'h0;
+	read_data_2 = 16'h0;
+	read_data_15 = 16'h0;
+end
+
+integer i;
+
+always @ (posedge clk, negedge rst)
+begin
+	if (~rst) 
+		begin
+		read_data_1 <= 16'h0;
+		read_data_2 <= 16'h0;
+		read_data_15 <= 16'h0;
+		registers[0] <= 16'h0;
+		registers[1] <= 16'h0;
+		registers[2] <= 16'h0;
+		registers[3] <= 16'h0;
+		registers[4] <= 16'h0;
+		registers[5] <= 16'h0;
+		registers[6] <= 16'h0;
+		registers[7] <= 16'h0;
+		registers[8] <= 16'h0;
+		registers[9] <= 16'h0;
+		registers[10] <= 16'h0;
+		registers[11] <= 16'h0;
+		registers[12] <= 16'h0;
+		registers[13] <= 16'h0;
+		registers[14] <= 16'h0;
+		registers[15] <= 16'h0;	
+		end
+	else if (write_enable_1) 
+		begin
+			registers[write_addr_1] <= write_data_1;
+			if ((write_enable_2 == 1) && (write_addr_2 != write_addr_1))
+				begin
+					registers[write_addr_2] <= write_data_2;
+				end
+		end
+
+//	Original read code:
+//	read_data_1 = registers[read_addr_1];
+//	read_data_2 = registers[read_addr_2];
+//Revised: data pass-through for faster write
+//write_addr_1 pass-through
+	if (write_enable_1)
+	begin
+		if (read_addr_1 == write_addr_1) 
+			read_data_1 <= write_data_1;
+		else if (read_addr_2 == write_addr_1)
+			read_data_2 <= write_data_1;
+		else 
+			read_data_1 <= registers[read_addr_1];
+	end
+	else read_data_1 <= registers[read_addr_1];
+//write_addr_2 pass-through
+	if (write_enable_2 == 1) 
+	begin
+		if (read_addr_1	== write_addr_2)
+			read_data_1 <= write_data_2;
+		else if (read_addr_2 == write_addr_2)
+			read_data_2 <= write_data_2;
+		else read_data_2 <= write_data_2;
+	end
+	else
+		read_data_2 <= write_data_2;
+	
+end
+
+
+
+
+endmodule

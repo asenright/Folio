@@ -1,0 +1,58 @@
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Nov 29 14:39 2017
+VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+                   0 in1 = xxxx|out1 = 0000|clk = 0|dis = 0
+                   5 in1 = 0000|out1 = 0000|clk = 1|dis = 0
+                  10 in1 = 0000|out1 = afaf|clk = 0|dis = 0
+                  15 in1 = afaf|out1 = afaf|clk = 1|dis = 0
+                  20 in1 = afaf|out1 = fafa|clk = 0|dis = 0
+                  25 in1 = fafa|out1 = fafa|clk = 1|dis = 0
+                  30 in1 = fafa|out1 = ffff|clk = 0|dis = 1
+                  35 in1 = fafa|out1 = ffff|clk = 1|dis = 1
+                  40 in1 = fafa|out1 = 0000|clk = 0|dis = 1
+                  45 in1 = fafa|out1 = 0000|clk = 1|dis = 1
+                  50 in1 = fafa|out1 = 0000|clk = 0|dis = 1
+                  55 in1 = fafa|out1 = 0000|clk = 1|dis = 1
+                  60 in1 = fafa|out1 = 0000|clk = 0|dis = 1
+                  65 in1 = fafa|out1 = 0000|clk = 1|dis = 1
+                  70 in1 = fafa|out1 = 0000|clk = 0|dis = 1
+                  75 in1 = fafa|out1 = 0000|clk = 1|dis = 1
+                  80 in1 = fafa|out1 = 0000|clk = 0|dis = 1
+                  85 in1 = fafa|out1 = 0000|clk = 1|dis = 1
+                  90 in1 = fafa|out1 = 0000|clk = 0|dis = 1
+                  95 in1 = fafa|out1 = 0000|clk = 1|dis = 1
+$stop at time 100 Scope: buffer_fixture File: buffer_fixture.v Line: 38
+ucli% o[K
+ucli% 
+ucli% jkkm[K[K[K
+wrong # args: should be "join list ?joinString?"
+ucli% 
+ucli% 
+ucli% dve
+Builtins:
+ after, alias, append, apropos, array, binary, break, catch, cd, clock,
+ close, concat, continue, create_command_group, date,
+ define_proc_attributes, echo, encoding, eof, error, error_info, eval,
+ exec, tcl_exit, expr, fblocked, fconfigure, fcopy, file, fileevent,
+ flush, for, foreach, format, get_app_var, get_command_option_values,
+ get_message_info, gets, glob, global, dve_help, history, if, incr,
+ info, interp, join, lappend, lindex, linsert, list, llength, load,
+ lrange, lreplace, lsearch, lset, lsort, man, namespace, open, package,
+ parse_proc_arguments, pid, print_suppressed_messages, printvar, proc,
+ GUI_tcl_shell_puts, pwd, quit, read, redirect, regexp, regsub, rename,
+ report_app_var, return, scan, seek, set, set_app_var,
+ set_message_info, socket, GUIsource, split, string, subst,
+ suppress_message, switch, tell, time, trace, unalias, unset,
+ unsuppress_message, update, uplevel, upvar, variable, vwait, which,
+ while, write_app_var
+
+Default Command Group:
+ print_proc_new_vars, set_cle_options, set_current_command_mode,
+ sh_list_key_bindings
+
+ucli% Received SIGHUP (signal 1), exiting.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 100
+CPU Time:      0.340 seconds;       Data structure size:   0.0Mb
+Wed Nov 29 14:41:22 2017

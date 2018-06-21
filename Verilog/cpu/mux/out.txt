@@ -1,0 +1,30 @@
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Nov 29 14:48 2017
+VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+                   0
+in1 1111 | in2 2222 | in3 3333 | in4 4444 
+sel 00 | out 1111
+
+                  20
+in1 1111 | in2 2222 | in3 3333 | in4 4444 
+sel 01 | out 2222
+
+                  30
+in1 1111 | in2 2222 | in3 3333 | in4 4444 
+sel 10 | out 3333
+
+                  40
+in1 1111 | in2 2222 | in3 3333 | in4 4444 
+sel 11 | out 4444
+
+$stop at time 50 Scope: mux_2to4_fixture File: mux_4to1_fixture.v Line: 30
+ucli% /
+invalid command name "/"
+ucli% /
+invalid command name "/"
+ucli% /[Kexit
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 50
+CPU Time:      0.350 seconds;       Data structure size:   0.0Mb
+Wed Nov 29 14:49:52 2017

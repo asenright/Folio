@@ -1,0 +1,125 @@
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Nov 29 16:25 2017
+VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+Signed Add
+                   0opcode = 0000
+w2_addr_src = x | w2_en = x | wb = x
+mtr = x | alu_src = x | alu_op=x
+mr = x | mw = x | bs = x
+err=x
+Signed Subtract
+                  10opcode = f000
+w2_addr_src = 0 | w2_en = 0 | wb = 1
+mtr = 0 | alu_src = 0 | alu_op=1
+mr = 0 | mw = 0 | bs = 0
+err=0
+Signed Multiply
+                  20opcode = f001
+w2_addr_src = 0 | w2_en = 0 | wb = 1
+mtr = 0 | alu_src = 0 | alu_op=1
+mr = 0 | mw = 0 | bs = 0
+err=0
+Signed Divide
+                  30opcode = f004
+w2_addr_src = 1 | w2_en = 1 | wb = 1
+mtr = 0 | alu_src = 0 | alu_op=1
+mr = 0 | mw = 0 | bs = 0
+err=0
+Move
+                  40opcode = f005
+w2_addr_src = 1 | w2_en = 1 | wb = 1
+mtr = 0 | alu_src = 0 | alu_op=1
+mr = 0 | mw = 0 | bs = 0
+err=0
+Swap
+                  50opcode = f007
+w2_addr_src = 0 | w2_en = 0 | wb = 1
+mtr = 0 | alu_src = 0 | alu_op=1
+mr = 0 | mw = 0 | bs = 0
+err=0
+AND immediate
+                  60opcode = f008
+w2_addr_src = 1 | w2_en = 1 | wb = 1
+mtr = 0 | alu_src = 0 | alu_op=1
+mr = 0 | mw = 0 | bs = 0
+err=0
+OR immediate
+                  70opcode = 8000
+w2_addr_src = 0 | w2_en = 0 | wb = 1
+mtr = 0 | alu_src = 1 | alu_op=1
+mr = 0 | mw = 0 | bs = 0
+err=0
+Load Byte Unsigned
+                  80opcode = 9000
+w2_addr_src = 0 | w2_en = 0 | wb = 1
+mtr = 0 | alu_src = 1 | alu_op=1
+mr = 0 | mw = 0 | bs = 0
+err=0
+Store Byte
+                  90opcode = a000
+w2_addr_src = 0 | w2_en = 0 | wb = 0
+mtr = 1 | alu_src = 1 | alu_op=1
+mr = 1 | mw = 0 | bs = 1
+err=0
+Load Word
+                 100opcode = b000
+w2_addr_src = 0 | w2_en = 0 | wb = 1
+mtr = 0 | alu_src = 1 | alu_op=1
+mr = 1 | mw = 0 | bs = 1
+err=0
+Store Word
+                 110opcode = c000
+w2_addr_src = 0 | w2_en = 0 | wb = 1
+mtr = 1 | alu_src = 1 | alu_op=1
+mr = 1 | mw = 0 | bs = 0
+err=0
+Branch if Less
+                 120opcode = d000
+w2_addr_src = 0 | w2_en = 0 | wb = 0
+mtr = 0 | alu_src = 1 | alu_op=1
+mr = 0 | mw = 1 | bs = 0
+err=0
+Branch if Greater
+                 130opcode = 5000
+w2_addr_src = 0 | w2_en = 0 | wb = 0
+mtr = 0 | alu_src = 0 | alu_op=0
+mr = 0 | mw = 0 | bs = 0
+err=0
+Branch if Equal
+                 140opcode = 4000
+w2_addr_src = 0 | w2_en = 0 | wb = 0
+mtr = 0 | alu_src = 0 | alu_op=0
+mr = 0 | mw = 0 | bs = 0
+err=0
+Jump
+                 150opcode = 6000
+w2_addr_src = 0 | w2_en = 0 | wb = 0
+mtr = 0 | alu_src = 0 | alu_op=0
+mr = 0 | mw = 0 | bs = 0
+err=1
+Halt
+                 160opcode = 1000
+w2_addr_src = 0 | w2_en = 0 | wb = 0
+mtr = 0 | alu_src = 0 | alu_op=0
+mr = 0 | mw = 0 | bs = 0
+err=0
+                 170opcode = 0000
+w2_addr_src = 0 | w2_en = 0 | wb = 0
+mtr = 0 | alu_src = 0 | alu_op=0
+mr = 0 | mw = 0 | bs = 0
+err=0
+$stop at time 250 Scope: control_fixture File: control_fixture.v Line: 90
+ucli% :wq
+invalid command name ":wq"
+ucli% $finish
+can't read "finish": no such variable
+ucli% 
+ucli% 
+ucli% 
+ucli% 
+ucli% Received SIGHUP (signal 1), exiting.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 250
+CPU Time:      0.340 seconds;       Data structure size:   0.0Mb
+Wed Nov 29 16:26:47 2017

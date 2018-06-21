@@ -1,0 +1,16 @@
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Oct 25 16:24 2017
+VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+                   0 data_in = 55 data_out = 00 clear = 1
+                   5 data_in = 55 data_out = 55 clear = 1
+                  90 data_in = 55 data_out = 00 clear = 0
+                 100 data_in = 55 data_out = 00 clear = 1
+                 120 data_in = aa data_out = 00 clear = 1
+                 125 data_in = aa data_out = aa clear = 1
+$finish called from file "register_fixture.v", line 34.
+$finish at simulation time                  200
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 200
+CPU Time:      0.330 seconds;       Data structure size:   0.0Mb
+Wed Oct 25 16:24:23 2017

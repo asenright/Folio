@@ -1,0 +1,44 @@
+19:40:44    48 --> ...                                                                                              [tcl] ucliGUI::start /gaia/class/student/enrighta/cpe142/project/forward/simv -ucligui 
+19:40:44    49 --> ...                                                                                                  [tcl] set ucliGUI::state
+19:40:44    50 --> ...  [tcl] gui_update_simulator_buttons
+19:40:46    51 --> ...      [tcl] set ucliGUI::state
+19:40:46    52 --> ...          [tcl] ucliCore::getToolPID
+19:40:46    53 --> ...              [tcl] synopsys::env hasTB
+19:40:46    54 --> ...                  [tcl] trigger_hier_stack_context_switch 0
+19:40:46    55 --> ...                      [tcl] synUtils::setDVEInitPhase 1
+19:40:46    56 --> ...                          [tcl] gui_get_env SIMSETUP::SIMVPD
+19:40:46    57 --> ...                              [tcl] synopsys::dump -type VPD -file /gaia/class/student/enrighta/cpe142/project/forward/inter.vpd -locking
+19:40:46    58 --> ...                                  [tcl] synopsys::dump -autoflush on -fid VPD0
+19:40:46    59 --> ...                                      [tcl] set ::dve_fid VPD0
+19:40:46    60 --> ...                                          [tcl] synUtils::setDVEInitPhase 0
+19:40:46    61 --> ...                                              [tcl] ucliCore::getToolPID
+19:40:46    62 --> ...                                                  [tcl] synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpMdjYY4
+19:40:46    63 --> ...                                                      [tcl] synUtils::sendTool -active {_icl_start_rpc -version "I-2014.03-2" -sync_file /tmp/vcs_dve_rpc.enrighta.2685}
+19:40:46    64 --> ...                                                          [tcl] synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.enrighta.2685}
+19:40:46    65 --> ...                                                              [tcl] dveMisc::vbusExpand control_fixture
+19:40:46    66 --> ...                                                                  [tcl] ucliGUI::vpdAddHierarchy -scope control_fixture -depth 1 -file /gaia/class/student/enrighta/cpe142/project/forward/inter.vpd; synopsys::dump -flush VPD0
+19:40:46    67 --> ...                                                                      [tcl] config endofsim noexit
+19:40:46    68 --> ...                                                                          [tcl] config onfail enable all
+19:40:46    69 --> ...                                                                              [tcl] config syscaddplainmembers
+19:40:46    70 --> ...                                                                                  [tcl] config syscaddsourcenames
+19:40:46    71 --> ...                                                                                      [tcl] config syscaddstructtypes
+19:40:46    72 --> ...                                                                                          [tcl] synopsys::listing -disable
+19:40:49    73 --> ...                                                                                              [tcl] synopsys::dump -add {control_fixture} -scope "." -depth 1 -fid VPD0
+19:40:49    74 --> ...                                                                                                  [tcl] synopsys::run
+19:40:49    75 --> ...  [tcl] set ucliGUI::state
+19:40:49    76 --> ...      [tcl] set ucliGUI::state
+19:40:49    77 --> ...          [tcl] set ucliGUI::state
+19:40:49    78 --> ...              [tcl] set ucliGUI::state
+19:40:49    79 --> ...                  [tcl] catch {senv activeDomain} dveMisc::result 
+19:40:49    80 --> ...                      [tcl] set dveMisc::result
+19:40:49    81 --> ...                          [tcl] gui_update_simulator_buttons
+19:41:34    82 --> ...                              [tcl] if [catch {gui_sim_terminate}] {gui_sim_terminate -kill}
+19:41:34    83 --> ...                                  [tcl] synopsys::finish
+19:41:34    84 --> ...                                      [tcl] set ucliGUI::state
+19:41:34    85 --> ...                                          [tcl] set ucliGUI::state
+19:41:34    86 --> ...                                              [tcl] catch {senv activeDomain} dveMisc::result 
+19:41:34    87 --> ...                                                  [tcl] set dveMisc::result
+19:41:34    88 --> ...                                                      [tcl] gui_update_simulator_buttons
+19:41:34    89 --> ...                                                          [tcl] catch {senv activeDomain} dveMisc::result 
+19:41:34    90 --> ...                                                              [tcl] set dveMisc::result
+19:41:34    91 --> ...                                                                  [tcl] ucli_exit

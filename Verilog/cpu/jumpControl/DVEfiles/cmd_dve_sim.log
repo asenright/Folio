@@ -1,0 +1,33 @@
+ucliGUI::start /gaia/class/student/enrighta/cpe142/project/jumpControl/simv -ucligui 
+set ucliGUI::state
+set ucliGUI::state
+ucliCore::getToolPID
+synopsys::env hasTB
+trigger_hier_stack_context_switch 0
+synUtils::setDVEInitPhase 1
+synopsys::dump -type VPD -file /gaia/class/student/enrighta/cpe142/project/jumpControl/inter.vpd -locking
+synopsys::dump -autoflush on -fid VPD0
+set ::dve_fid VPD0
+synUtils::setDVEInitPhase 0
+ucliCore::getToolPID
+synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpmoVqRY
+synUtils::sendTool -active {_icl_start_rpc -version "I-2014.03-2" -sync_file /tmp/vcs_dve_rpc.enrighta.25720}
+synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.enrighta.25720}
+ucliGUI::vpdAddHierarchy -scope buffer_fixture -depth 1 -file /gaia/class/student/enrighta/cpe142/project/jumpControl/inter.vpd; synopsys::dump -flush VPD0
+config endofsim noexit
+config onfail enable all
+config syscaddplainmembers
+config syscaddsourcenames
+config syscaddstructtypes
+synopsys::listing -disable
+synopsys::dump -add {buffer_fixture} -scope "." -depth 1 -fid VPD0
+synopsys::run
+set ucliGUI::state
+set ucliGUI::state
+set ucliGUI::state
+set ucliGUI::state
+if [catch {gui_sim_terminate}] {gui_sim_terminate -kill}
+synopsys::finish
+set ucliGUI::state
+set ucliGUI::state
+ucli_exit

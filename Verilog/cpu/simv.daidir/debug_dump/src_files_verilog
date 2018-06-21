@@ -1,0 +1,18 @@
+/gaia/class/student/enrighta/cpe142/cpu/Alu/alu.v
+/gaia/class/student/enrighta/cpe142/cpu/Counter/programcounter.v
+/gaia/class/student/enrighta/cpe142/cpu/adder/adder.v
+/gaia/class/student/enrighta/cpe142/cpu/buffer/lockBuffer.v
+/gaia/class/student/enrighta/cpe142/cpu/control/control.v
+/gaia/class/student/enrighta/cpe142/cpu/cpu.v
+/gaia/class/student/enrighta/cpe142/cpu/cpu_fixture.v
+/gaia/class/student/enrighta/cpe142/cpu/data memory/datamemory.v
+/gaia/class/student/enrighta/cpe142/cpu/forward/forward.v
+/gaia/class/student/enrighta/cpe142/cpu/hazard/hazard.v
+/gaia/class/student/enrighta/cpe142/cpu/instruction memory/instructionmemory.v
+/gaia/class/student/enrighta/cpe142/cpu/jumpControl/jumpControl.v
+/gaia/class/student/enrighta/cpe142/cpu/leftShift1/leftShift1.v
+/gaia/class/student/enrighta/cpe142/cpu/mux/mux_2to1.v
+/gaia/class/student/enrighta/cpe142/cpu/mux/mux_4to1.v
+/gaia/class/student/enrighta/cpe142/cpu/register/register.v
+/gaia/class/student/enrighta/cpe142/cpu/register/register_file.v
+/gaia/class/student/enrighta/cpe142/cpu/signExtend/signExtend.v

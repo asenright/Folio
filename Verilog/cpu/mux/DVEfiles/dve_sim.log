@@ -1,0 +1,44 @@
+14:53:46    48 --> ...                                                                                              [tcl] ucliGUI::start /gaia/class/student/enrighta/cpe142/project/mux/simv -ucligui 
+14:53:46    49 --> ...                                                                                                  [tcl] set ucliGUI::state
+14:53:47    50 --> ...  [tcl] gui_update_simulator_buttons
+14:53:48    51 --> ...      [tcl] set ucliGUI::state
+14:53:48    52 --> ...          [tcl] ucliCore::getToolPID
+14:53:48    53 --> ...              [tcl] synopsys::env hasTB
+14:53:48    54 --> ...                  [tcl] trigger_hier_stack_context_switch 0
+14:53:48    55 --> ...                      [tcl] synUtils::setDVEInitPhase 1
+14:53:48    56 --> ...                          [tcl] gui_get_env SIMSETUP::SIMVPD
+14:53:48    57 --> ...                              [tcl] synopsys::dump -type VPD -file /gaia/class/student/enrighta/cpe142/project/mux/inter.vpd -locking
+14:53:48    58 --> ...                                  [tcl] synopsys::dump -autoflush on -fid VPD0
+14:53:48    59 --> ...                                      [tcl] set ::dve_fid VPD0
+14:53:48    60 --> ...                                          [tcl] synUtils::setDVEInitPhase 0
+14:53:48    61 --> ...                                              [tcl] ucliCore::getToolPID
+14:53:48    62 --> ...                                                  [tcl] synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpA0tHQq
+14:53:48    63 --> ...                                                      [tcl] synUtils::sendTool -active {_icl_start_rpc -version "I-2014.03-2" -sync_file /tmp/vcs_dve_rpc.enrighta.25181}
+14:53:48    64 --> ...                                                          [tcl] synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.enrighta.25181}
+14:53:48    65 --> ...                                                              [tcl] dveMisc::vbusExpand mux_2to4_fixture
+14:53:48    66 --> ...                                                                  [tcl] ucliGUI::vpdAddHierarchy -scope mux_2to4_fixture -depth 1 -file /gaia/class/student/enrighta/cpe142/project/mux/inter.vpd; synopsys::dump -flush VPD0
+14:53:48    67 --> ...                                                                      [tcl] config endofsim noexit
+14:53:48    68 --> ...                                                                          [tcl] config onfail enable all
+14:53:48    69 --> ...                                                                              [tcl] config syscaddplainmembers
+14:53:48    70 --> ...                                                                                  [tcl] config syscaddsourcenames
+14:53:48    71 --> ...                                                                                      [tcl] config syscaddstructtypes
+14:53:48    72 --> ...                                                                                          [tcl] synopsys::listing -disable
+14:53:50    73 --> ...                                                                                              [tcl] synopsys::dump -add {mux_2to4_fixture} -scope "." -depth 1 -fid VPD0
+14:53:51    74 --> ...                                                                                                  [tcl] synopsys::run
+14:53:51    75 --> ...  [tcl] set ucliGUI::state
+14:53:51    76 --> ...      [tcl] set ucliGUI::state
+14:53:51    77 --> ...          [tcl] set ucliGUI::state
+14:53:51    78 --> ...              [tcl] set ucliGUI::state
+14:53:51    79 --> ...                  [tcl] catch {senv activeDomain} dveMisc::result 
+14:53:51    80 --> ...                      [tcl] set dveMisc::result
+14:53:51    81 --> ...                          [tcl] gui_update_simulator_buttons
+14:53:57    82 --> ...                              [tcl] if [catch {gui_sim_terminate}] {gui_sim_terminate -kill}
+14:53:57    83 --> ...                                  [tcl] synopsys::finish
+14:53:57    84 --> ...                                      [tcl] set ucliGUI::state
+14:53:57    85 --> ...                                          [tcl] set ucliGUI::state
+14:53:57    86 --> ...                                              [tcl] catch {senv activeDomain} dveMisc::result 
+14:53:57    87 --> ...                                                  [tcl] set dveMisc::result
+14:53:57    88 --> ...                                                      [tcl] gui_update_simulator_buttons
+14:53:57    89 --> ...                                                          [tcl] catch {senv activeDomain} dveMisc::result 
+14:53:57    90 --> ...                                                              [tcl] set dveMisc::result
+14:53:57    91 --> ...                                                                  [tcl] ucli_exit

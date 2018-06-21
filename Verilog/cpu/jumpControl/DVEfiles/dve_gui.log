@@ -1,0 +1,26 @@
+Error: [EK-CMD-010]
+unknown option '-ucligui '.
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Nov 29 14:55 2017
+VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+The file '/gaia/class/student/enrighta/cpe142/project/jumpControl/inter.vpd' was opened successfully.
+Unconditional Jump
+                   0opcode = 0 | neg = 0 | zero = 0 | result = 0
+                  10opcode = 1 | neg = 0 | zero = 0 | result = 1
+Branch on less
+                  20opcode = 0 | neg = 0 | zero = 0 | result = 0
+                  30opcode = 5 | neg = 0 | zero = 0 | result = 0
+                  40opcode = 5 | neg = 1 | zero = 0 | result = 1
+Branch on equal
+                  50opcode = 5 | neg = 0 | zero = 0 | result = 0
+                  60opcode = 6 | neg = 0 | zero = 0 | result = 0
+                  70opcode = 6 | neg = 0 | zero = 1 | result = 1
+Branch on greater than
+                  80opcode = 6 | neg = 0 | zero = 0 | result = 0
+                  90opcode = 4 | neg = 0 | zero = 0 | result = 1
+                 100opcode = 4 | neg = 1 | zero = 0 | result = 0
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 110
+CPU Time:      0.110 seconds;       Data structure size:   0.0Mb
+Wed Nov 29 14:55:19 2017

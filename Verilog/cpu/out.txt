@@ -1,0 +1,2406 @@
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  5 14:57 2017
+VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+#                   0 : rst 1 | err register : xxxx |
+
+///////Instructions////////
+IF Address: xxxx
+IF  : xxxx | ID : xxxx | EX : xxxx | M : xxxx | WB : xxxx
+////////Register File//////////
+0 : xxxx | 1  : xxxx | 2  : xxxx | 3 : xxxx
+4 : xxxx | 5  : xxxx | 6  : xxxx | 7 : xxxx
+8 : xxxx | 9  : xxxx | A  : xxxx | B : xxxx
+C : xxxx | D  : xxxx | E  : xxxx | F : xxxx
+
+////////ALU//////////
+ opcode: x | in1: xxxx | in2 : xxxx | result : xxxx | remainder : xxxx | zero : x | neg : x
+/////////Writeback////////////
+WB1: En : x | Wd : x | Wa : xxxx
+WB2: En : x | Wd : x | Wa : xxxx
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Instruction: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : xxxxxxxxxx | Out : xxxxxxxxxx | Lock : 0 | Flush : 0
+Instruction: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Dat1: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Dat2: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Dat15: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+SE: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Address: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : xxxxxxxxx | Out : xxxxxxxxx | Lock : 0 | Flush : 0
+Instruction: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Dat1: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Address: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : xxxxx | Out : xxxxx | Lock : 0 | Flush : 0
+Instruction: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Dat1: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+ERR:  			In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+////////////EX///////////////
+ALU SRC: 		In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+ALU SRC2: 		In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+HAZ1 			In1 : xxxx | In2 : xxxx | In3: xxxx | Sel : xx | Out: xxxx
+HAZ2: 			In1 : xxxx | In2 : xxxx | In3: xxxx | Sel : xx | Out: xxxx
+////////////WB///////////////
+Mem to Reg:  		In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+W2 Addr Src: 		In1 : x | In2 : f | Sel : x | Out: x
+
+
+
+
+
+#                   5 : rst 1 | err register : 0xxx |
+
+///////Instructions////////
+IF Address: xxxx
+IF  : xxxx | ID : xxxx | EX : xxxx | M : xxxx | WB : xxxx
+////////Register File//////////
+0 : xxxx | 1  : xxxx | 2  : xxxx | 3 : xxxx
+4 : xxxx | 5  : xxxx | 6  : xxxx | 7 : xxxx
+8 : xxxx | 9  : xxxx | A  : xxxx | B : xxxx
+C : xxxx | D  : xxxx | E  : xxxx | F : xxxx
+
+////////ALU//////////
+ opcode: x | in1: xxxx | in2 : xxxx | result : xxxx | remainder : xxxx | zero : x | neg : x
+/////////Writeback////////////
+WB1: En : x | Wd : x | Wa : xxxx
+WB2: En : x | Wd : x | Wa : xxxx
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Instruction: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : xxxxxxxxxx | Out : xxxxxxxxxx | Lock : 0 | Flush : 0
+Instruction: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Dat1: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Dat2: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Dat15: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+SE: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Address: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : xxxxxxxxx | Out : xxxxxxxxx | Lock : 0 | Flush : 0
+Instruction: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Dat1: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Address: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : xxxxx | Out : xxxxx | Lock : 0 | Flush : 0
+Instruction: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0
+Dat1: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+ERR:  			In1 : xxxx | In2 : 0000 | Sel : 0 | Out: xxxx
+////////////EX///////////////
+ALU SRC: 		In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+ALU SRC2: 		In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+HAZ1 			In1 : xxxx | In2 : xxxx | In3: xxxx | Sel : xx | Out: xxxx
+HAZ2: 			In1 : xxxx | In2 : xxxx | In3: xxxx | Sel : xx | Out: xxxx
+////////////WB///////////////
+Mem to Reg:  		In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+W2 Addr Src: 		In1 : x | In2 : f | Sel : x | Out: x
+
+
+
+
+
+#                  10 : rst 0 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0000
+IF  : f120 | ID : xxxx | EX : xxxx | M : xxxx | WB : xxxx
+////////Register File//////////
+0 : 0f00 | 1  : 0050 | 2  : ff0f | 3 : f0ff
+4 : 0040 | 5  : 6666 | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: x | in1: xxxx | in2 : xxxx | result : xxxx | remainder : xxxx | zero : x | neg : x
+/////////Writeback////////////
+WB1: En : x | Wd : x | Wa : xxxx
+WB2: En : x | Wd : x | Wa : xxxx
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0002 | Out : xxxx | Lock : 1 | Flush : 1
+Instruction: 		In : f120 | Out : xxxx | Lock : 1 | Flush : 1
+
+/////ID/EX////////
+Controls: 		In : xxxxxxxxxx | Out : xxxxxxxxxx | Lock : 1 | Flush : 1
+Instruction: 		In : xxxx | Out : xxxx | Lock : 1 | Flush : 1
+Dat1: 			In : xxxx | Out : xxxx | Lock : 1 | Flush : 1 
+Dat2: 			In : xxxx | Out : xxxx | Lock : 1 | Flush : 1 
+Dat15: 			In : 0000 | Out : xxxx | Lock : 1 | Flush : 1
+SE: 			In : xxxx | Out : xxxx | Lock : 1 | Flush : 1 
+Address: 		In : xxxx | Out : xxxx | Lock : 1 | Flush : 1 
+
+/////EX/M///////
+Controls: 		In : xxxxxxxxx | Out : xxxxxxxxx | Lock : 1 | Flush : 1
+Instruction: 		In : xxxx | Out : xxxx | Lock : 1 | Flush : 1
+Result: 		In : xxxx | Out : xxxx | Lock : 1 | Flush : 1 
+Remainder: 		In : xxxx | Out : xxxx | Lock : 1 | Flush : 1 
+Dat1: 			In : xxxx | Out : xxxx | Lock : 1 | Flush : 1
+Address: 		In : xxxx | Out : xxxx | Lock : 1 | Flush : 1
+
+/////M/WB///////
+Controls: 		In : xxxxx | Out : xxxxx | Lock : 1 | Flush : 1
+Instruction: 		In : xxxx | Out : xxxx | Lock : 1 | Flush : 1
+Result: 		In : xxxx | Out : xxxx | Lock : 1 | Flush : 1 
+Remainder: 		In : xxxx | Out : xxxx | Lock : 1 | Flush : 1
+Dat1: 			In : xxxx | Out : xxxx | Lock : 1 | Flush : 1 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0002 | In2 : xxxx | Sel : x | Out: xxxx
+ERR:  			In1 : xxxx | In2 : 0000 | Sel : 0 | Out: xxxx
+////////////EX///////////////
+ALU SRC: 		In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+ALU SRC2: 		In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+HAZ1 			In1 : xxxx | In2 : xxxx | In3: xxxx | Sel : xx | Out: xxxx
+HAZ2: 			In1 : xxxx | In2 : xxxx | In3: xxxx | Sel : xx | Out: xxxx
+////////////WB///////////////
+Mem to Reg:  		In1 : xxxx | In2 : xxxx | Sel : x | Out: xxxx
+W2 Addr Src: 		In1 : x | In2 : f | Sel : x | Out: x
+
+
+
+
+
+#                  15 : rst 0 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0000
+IF  : f120 | ID : 0000 | EX : 0000 | M : 0000 | WB : 0000
+////////Register File//////////
+0 : 0f00 | 1  : 0050 | 2  : ff0f | 3 : f0ff
+4 : 0040 | 5  : 6666 | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: 0000 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : x | neg : x
+/////////Writeback////////////
+WB1: En : 0 | Wd : 0 | Wa : 0000
+WB2: En : 0 | Wd : 0 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0002 | Out : 0000 | Lock : 1 | Flush : 1
+Instruction: 		In : f120 | Out : 0000 | Lock : 1 | Flush : 1
+
+/////ID/EX////////
+Controls: 		In : xxxxxxxxxx | Out : 0000000000 | Lock : 1 | Flush : 1
+Instruction: 		In : 0000 | Out : 0000 | Lock : 1 | Flush : 1
+Dat1: 			In : xxxx | Out : 0000 | Lock : 1 | Flush : 1 
+Dat2: 			In : xxxx | Out : 0000 | Lock : 1 | Flush : 1 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 1
+SE: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 1 
+Address: 		In : 0000 | Out : 0000 | Lock : 1 | Flush : 1 
+
+/////EX/M///////
+Controls: 		In : 0000000xx | Out : 000000000 | Lock : 1 | Flush : 1
+Instruction: 		In : 0000 | Out : 0000 | Lock : 1 | Flush : 1
+Result: 		In : 0000 | Out : 0000 | Lock : 1 | Flush : 1 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 1 | Flush : 1 
+Dat1: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 1
+Address: 		In : 0000 | Out : 0000 | Lock : 1 | Flush : 1
+
+/////M/WB///////
+Controls: 		In : 00000 | Out : 00000 | Lock : 1 | Flush : 1
+Instruction: 		In : 0000 | Out : 0000 | Lock : 1 | Flush : 1
+Result: 		In : xxxx | Out : 0000 | Lock : 1 | Flush : 1 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 1 | Flush : 1
+Dat1: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 1 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0002 | In2 : 0000 | Sel : 0 | Out: 0002
+ERR:  			In1 : 0002 | In2 : 0000 | Sel : 0 | Out: 0002
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0000 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0000
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : 0 | Out: 0
+
+
+
+
+
+#                  20 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0000
+IF  : f120 | ID : 0000 | EX : 0000 | M : 0000 | WB : 0000
+////////Register File//////////
+0 : 0f00 | 1  : 0050 | 2  : ff0f | 3 : f0ff
+4 : 0040 | 5  : 6666 | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: 0000 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : x | neg : x
+/////////Writeback////////////
+WB1: En : 0 | Wd : 0 | Wa : 0000
+WB2: En : 0 | Wd : 0 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0002 | Out : 0000 | Lock : 0 | Flush : 0
+Instruction: 		In : f120 | Out : 0000 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : xxxxxxxxxx | Out : 0000000000 | Lock : 0 | Flush : 0
+Instruction: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : xxxx | Out : 0000 | Lock : 0 | Flush : 0 
+Dat2: 			In : xxxx | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Address: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 0000000xx | Out : 000000000 | Lock : 0 | Flush : 0
+Instruction: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Address: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00000 | Out : 00000 | Lock : 0 | Flush : 0
+Instruction: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0002 | In2 : 0000 | Sel : 0 | Out: 0002
+ERR:  			In1 : 0002 | In2 : 0000 | Sel : 0 | Out: 0002
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0000 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0000
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : 0 | Out: 0
+
+
+
+
+
+#                  25 : rst 1 | err register : 00xx |
+
+///////Instructions////////
+IF Address: 0002
+IF  : f121 | ID : f120 | EX : 0000 | M : 0000 | WB : 0000
+////////Register File//////////
+0 : 0f00 | 1  : 0050 | 2  : ff0f | 3 : f0ff
+4 : 0040 | 5  : 6666 | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: 0000 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : x | neg : x
+/////////Writeback////////////
+WB1: En : 0 | Wd : 0 | Wa : 0000
+WB2: En : 0 | Wd : 0 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0004 | Out : 0002 | Lock : 0 | Flush : 0
+Instruction: 		In : f121 | Out : f120 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : xxxxxxxxxx | Lock : 0 | Flush : 0
+Instruction: 		In : f120 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0f00 | Out : 0f00 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0f00 | Out : 0f00 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0020 | Out : 0000 | Lock : 0 | Flush : 0 
+Address: 		In : 0002 | Out : 0000 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : xxxxxxxxx | Out : 0000000xx | Lock : 0 | Flush : 0
+Instruction: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0f00 | Out : 0000 | Lock : 0 | Flush : 0
+Address: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00000 | Out : 00000 | Lock : 0 | Flush : 0
+Instruction: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0004 | In2 : 0000 | Sel : 0 | Out: 0004
+ERR:  			In1 : 0004 | In2 : 0000 | Sel : 0 | Out: 0004
+////////////EX///////////////
+ALU SRC: 		In1 : 0f00 | In2 : 0000 | Sel : x | Out: 0000
+ALU SRC2: 		In1 : 0f00 | In2 : 0000 | Sel : x | Out: 0000
+HAZ1 			In1 : 0000 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0000
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : 0 | Out: 0
+
+
+
+
+
+#                  35 : rst 1 | err register : 000x |
+
+///////Instructions////////
+IF Address: 0004
+IF  : 93ff | ID : f121 | EX : f120 | M : 0000 | WB : 0000
+////////Register File//////////
+0 : 0f00 | 1  : 0050 | 2  : ff0f | 3 : f0ff
+4 : 0040 | 5  : 6666 | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: 0050 | in2 : ff0f | result : ff5f | remainder : 0000 | zero : 0 | neg : 1
+/////////Writeback////////////
+WB1: En : 0 | Wd : 0 | Wa : 0000
+WB2: En : 0 | Wd : 0 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0006 | Out : 0004 | Lock : 0 | Flush : 0
+Instruction: 		In : 93ff | Out : f121 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : f121 | Out : f120 | Lock : 0 | Flush : 0
+Dat1: 			In : 0050 | Out : 0050 | Lock : 0 | Flush : 0 
+Dat2: 			In : ff0f | Out : ff0f | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0021 | Out : 0020 | Lock : 0 | Flush : 0 
+Address: 		In : 0004 | Out : 0002 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000001 | Out : xxxxxxxxx | Lock : 0 | Flush : 0
+Instruction: 		In : f120 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : ff5f | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0050 | Out : 0f00 | Lock : 0 | Flush : 0
+Address: 		In : 0042 | Out : 0000 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : xxxxx | Out : 00000 | Lock : 0 | Flush : 0
+Instruction: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0006 | In2 : 0000 | Sel : 0 | Out: 0006
+ERR:  			In1 : 0006 | In2 : 0000 | Sel : 0 | Out: 0006
+////////////EX///////////////
+ALU SRC: 		In1 : 0050 | In2 : 0020 | Sel : 0 | Out: 0050
+ALU SRC2: 		In1 : ff0f | In2 : 0000 | Sel : 0 | Out: ff0f
+HAZ1 			In1 : 0050 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0050
+HAZ2: 			In1 : ff0f | In2 : 0000 | In3: 0000 | Sel : 00 | Out: ff0f
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : 0 | Out: 0
+
+
+
+
+
+#                  45 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0006
+IF  : 834c | ID : 93ff | EX : f121 | M : f120 | WB : 0000
+////////Register File//////////
+0 : 0f00 | 1  : 0050 | 2  : ff0f | 3 : f0ff
+4 : 0040 | 5  : 6666 | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 1 | in1: ff5f | in2 : ff0f | result : 0050 | remainder : 0000 | zero : 0 | neg : 1
+/////////Writeback////////////
+WB1: En : x | Wd : 0 | Wa : 0000
+WB2: En : x | Wd : 0 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0008 | Out : 0006 | Lock : 0 | Flush : 0
+Instruction: 		In : 834c | Out : 93ff | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001011000 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : 93ff | Out : f121 | Lock : 0 | Flush : 0
+Dat1: 			In : 0050 | Out : 0050 | Lock : 0 | Flush : 0 
+Dat2: 			In : ff0f | Out : ff0f | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ffff | Out : 0021 | Lock : 0 | Flush : 0 
+Address: 		In : 0006 | Out : 0004 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000001 | Out : 001000001 | Lock : 0 | Flush : 0
+Instruction: 		In : f121 | Out : f120 | Lock : 0 | Flush : 0
+Result: 		In : 0050 | Out : ff5f | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0050 | Out : 0050 | Lock : 0 | Flush : 0
+Address: 		In : 0046 | Out : 0042 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : xxxxx | Lock : 0 | Flush : 0
+Instruction: 		In : f120 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : ff5f | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0008 | In2 : 0042 | Sel : 0 | Out: 0008
+ERR:  			In1 : 0008 | In2 : 0000 | Sel : 0 | Out: 0008
+////////////EX///////////////
+ALU SRC: 		In1 : 0050 | In2 : 0021 | Sel : 0 | Out: 0050
+ALU SRC2: 		In1 : ff0f | In2 : 0000 | Sel : 0 | Out: ff0f
+HAZ1 			In1 : 0050 | In2 : ff5f | In3: 0000 | Sel : 01 | Out: ff5f
+HAZ2: 			In1 : ff0f | In2 : ff5f | In3: 0000 | Sel : 00 | Out: ff0f
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : x | Out: 0000
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : x | Out: 0
+
+
+
+
+
+#                  55 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0008
+IF  : f564 | ID : 834c | EX : 93ff | M : f121 | WB : f120
+////////Register File//////////
+0 : 0f00 | 1  : 0050 | 2  : ff0f | 3 : f0ff
+4 : 0040 | 5  : 6666 | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: f | in1: ffff | in2 : 0000 | result : 0050 | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 1 | Wa : ff5f
+WB2: En : 0 | Wd : 2 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 000a | Out : 0008 | Lock : 0 | Flush : 0
+Instruction: 		In : f564 | Out : 834c | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001011000 | Out : 0001011000 | Lock : 0 | Flush : 0
+Instruction: 		In : 834c | Out : 93ff | Lock : 0 | Flush : 0
+Dat1: 			In : f0ff | Out : f0ff | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 004c | Out : ffff | Lock : 0 | Flush : 0 
+Address: 		In : 0008 | Out : 0006 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000000 | Out : 001000001 | Lock : 0 | Flush : 0
+Instruction: 		In : 93ff | Out : f121 | Lock : 0 | Flush : 0
+Result: 		In : 0050 | Out : 0050 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : f0ff | Out : 0050 | Lock : 0 | Flush : 0
+Address: 		In : 0004 | Out : 0046 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : f121 | Out : f120 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0050 | Out : ff5f | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 000a | In2 : 0046 | Sel : 0 | Out: 000a
+ERR:  			In1 : 000a | In2 : 0000 | Sel : 0 | Out: 000a
+////////////EX///////////////
+ALU SRC: 		In1 : f0ff | In2 : ffff | Sel : 1 | Out: ffff
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : ffff | In2 : 0050 | In3: ff5f | Sel : 00 | Out: ffff
+HAZ2: 			In1 : 0000 | In2 : 0050 | In3: ff5f | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : ff5f | In2 : xxxx | Sel : 0 | Out: ff5f
+W2 Addr Src: 		In1 : 2 | In2 : f | Sel : 0 | Out: 2
+
+
+
+
+
+#                  65 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 000a
+IF  : f155 | ID : f564 | EX : 834c | M : 93ff | WB : f121
+////////Register File//////////
+0 : 0f00 | 1  : ff5f | 2  : ff0f | 3 : f0ff
+4 : 0040 | 5  : 6666 | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: c | in1: 0050 | in2 : 0040 | result : 0050 | remainder : 0000 | zero : 0 | neg : 1
+/////////Writeback////////////
+WB1: En : 1 | Wd : 1 | Wa : 0050
+WB2: En : 0 | Wd : 2 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 000c | Out : 000a | Lock : 0 | Flush : 0
+Instruction: 		In : f155 | Out : f564 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0111001000 | Out : 0001011000 | Lock : 0 | Flush : 0
+Instruction: 		In : f564 | Out : 834c | Lock : 0 | Flush : 0
+Dat1: 			In : f0ff | Out : f0ff | Lock : 0 | Flush : 0 
+Dat2: 			In : 0040 | Out : 0040 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0064 | Out : 004c | Lock : 0 | Flush : 0 
+Address: 		In : 000a | Out : 0008 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000001 | Out : 001000000 | Lock : 0 | Flush : 0
+Instruction: 		In : 834c | Out : 93ff | Lock : 0 | Flush : 0
+Result: 		In : 0050 | Out : 0050 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : f0ff | Out : f0ff | Lock : 0 | Flush : 0
+Address: 		In : 00a0 | Out : 0004 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : 93ff | Out : f121 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0050 | Out : 0050 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 000c | In2 : 0004 | Sel : 0 | Out: 000c
+ERR:  			In1 : 000c | In2 : 0000 | Sel : 0 | Out: 000c
+////////////EX///////////////
+ALU SRC: 		In1 : f0ff | In2 : 004c | Sel : 1 | Out: 004c
+ALU SRC2: 		In1 : 0040 | In2 : 0000 | Sel : 0 | Out: 0040
+HAZ1 			In1 : 004c | In2 : 0050 | In3: 0050 | Sel : 01 | Out: 0050
+HAZ2: 			In1 : 0040 | In2 : 0050 | In3: 0050 | Sel : 00 | Out: 0040
+////////////WB///////////////
+Mem to Reg:  		In1 : 0050 | In2 : xxxx | Sel : 0 | Out: 0050
+W2 Addr Src: 		In1 : 2 | In2 : f | Sel : 0 | Out: 2
+
+
+
+
+
+#                  75 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 000c
+IF  : fff1 | ID : f155 | EX : f564 | M : 834c | WB : 93ff
+////////Register File//////////
+0 : 0f00 | 1  : 0050 | 2  : ff0f | 3 : f0ff
+4 : 0040 | 5  : 6666 | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 4 | in1: 6666 | in2 : 00ff | result : ff9a | remainder : 0065 | zero : 0 | neg : 1
+/////////Writeback////////////
+WB1: En : 1 | Wd : 3 | Wa : 0050
+WB2: En : 0 | Wd : f | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 000e | Out : 000c | Lock : 0 | Flush : 0
+Instruction: 		In : fff1 | Out : f155 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0111001000 | Out : 0111001000 | Lock : 0 | Flush : 0
+Instruction: 		In : f155 | Out : f564 | Lock : 0 | Flush : 0
+Dat1: 			In : 6666 | Out : 6666 | Lock : 0 | Flush : 0 
+Dat2: 			In : 00ff | Out : 00ff | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0055 | Out : 0064 | Lock : 0 | Flush : 0 
+Address: 		In : 000c | Out : 000a | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 111000001 | Out : 001000001 | Lock : 0 | Flush : 0
+Instruction: 		In : f564 | Out : 834c | Lock : 0 | Flush : 0
+Result: 		In : ff9a | Out : 0050 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0065 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 6666 | Out : f0ff | Lock : 0 | Flush : 0
+Address: 		In : 00d2 | Out : 00a0 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : 834c | Out : 93ff | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0050 | Out : 0050 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 000e | In2 : 00a0 | Sel : 0 | Out: 000e
+ERR:  			In1 : 000e | In2 : 0000 | Sel : 0 | Out: 000e
+////////////EX///////////////
+ALU SRC: 		In1 : 6666 | In2 : 0064 | Sel : 0 | Out: 6666
+ALU SRC2: 		In1 : 00ff | In2 : 0000 | Sel : 0 | Out: 00ff
+HAZ1 			In1 : 6666 | In2 : 0050 | In3: 0050 | Sel : 00 | Out: 6666
+HAZ2: 			In1 : 00ff | In2 : 0050 | In3: 0050 | Sel : 00 | Out: 00ff
+////////////WB///////////////
+Mem to Reg:  		In1 : 0050 | In2 : xxxx | Sel : 0 | Out: 0050
+W2 Addr Src: 		In1 : f | In2 : f | Sel : 0 | Out: f
+
+
+
+
+
+#                  85 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 000e
+IF  : f487 | ID : fff1 | EX : f155 | M : f564 | WB : 834c
+////////Register File//////////
+0 : 0f00 | 1  : 0050 | 2  : ff0f | 3 : 0050
+4 : 0040 | 5  : 6666 | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 5 | in1: 0050 | in2 : ff9a | result : 0000 | remainder : 0050 | zero : 0 | neg : 1
+/////////Writeback////////////
+WB1: En : 1 | Wd : 3 | Wa : 0050
+WB2: En : 0 | Wd : 4 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0010 | Out : 000e | Lock : 0 | Flush : 0
+Instruction: 		In : f487 | Out : fff1 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : 0111001000 | Lock : 0 | Flush : 0
+Instruction: 		In : fff1 | Out : f155 | Lock : 0 | Flush : 0
+Dat1: 			In : 0050 | Out : 0050 | Lock : 0 | Flush : 0 
+Dat2: 			In : 6666 | Out : 6666 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : fff1 | Out : 0055 | Lock : 0 | Flush : 0 
+Address: 		In : 000e | Out : 000c | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 111000001 | Out : 111000001 | Lock : 0 | Flush : 0
+Instruction: 		In : f155 | Out : f564 | Lock : 0 | Flush : 0
+Result: 		In : 0000 | Out : ff9a | Lock : 0 | Flush : 0 
+Remainder: 		In : 0050 | Out : 0065 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0050 | Out : 6666 | Lock : 0 | Flush : 0
+Address: 		In : 00b6 | Out : 00d2 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 01110 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : f564 | Out : 834c | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : ff9a | Out : 0050 | Lock : 0 | Flush : 0
+Dat1: 			In : 0065 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0010 | In2 : 00d2 | Sel : 0 | Out: 0010
+ERR:  			In1 : 0010 | In2 : 0000 | Sel : 0 | Out: 0010
+////////////EX///////////////
+ALU SRC: 		In1 : 0050 | In2 : 0055 | Sel : 0 | Out: 0050
+ALU SRC2: 		In1 : 6666 | In2 : 0000 | Sel : 0 | Out: 6666
+HAZ1 			In1 : 0050 | In2 : ff9a | In3: 0050 | Sel : 00 | Out: 0050
+HAZ2: 			In1 : 6666 | In2 : ff9a | In3: 0050 | Sel : 01 | Out: ff9a
+////////////WB///////////////
+Mem to Reg:  		In1 : 0050 | In2 : xxxx | Sel : 0 | Out: 0050
+W2 Addr Src: 		In1 : 4 | In2 : f | Sel : 0 | Out: 4
+
+
+
+
+
+#                  95 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0010
+IF  : f468 | ID : f487 | EX : fff1 | M : f155 | WB : f564
+////////Register File//////////
+0 : 0f00 | 1  : 0050 | 2  : ff0f | 3 : 0050
+4 : 0040 | 5  : 6666 | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 1 | in1: 0000 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : 1 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 5 | Wa : ff9a
+WB2: En : 1 | Wd : f | Wa : 0065
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0012 | Out : 0010 | Lock : 0 | Flush : 0
+Instruction: 		In : f468 | Out : f487 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : f487 | Out : fff1 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ff87 | Out : fff1 | Lock : 0 | Flush : 0 
+Address: 		In : 0010 | Out : 000e | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000010 | Out : 111000001 | Lock : 0 | Flush : 0
+Instruction: 		In : fff1 | Out : f155 | Lock : 0 | Flush : 0
+Result: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0050 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0000 | Out : 0050 | Lock : 0 | Flush : 0
+Address: 		In : fff0 | Out : 00b6 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 01110 | Out : 01110 | Lock : 0 | Flush : 0
+Instruction: 		In : f155 | Out : f564 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : ff9a | Lock : 0 | Flush : 0
+Dat1: 			In : 0050 | Out : 0065 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0012 | In2 : 00b6 | Sel : 0 | Out: 0012
+ERR:  			In1 : 0012 | In2 : 0000 | Sel : 0 | Out: 0012
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : fff1 | Sel : 0 | Out: 0000
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0000 | In2 : 0000 | In3: ff9a | Sel : 00 | Out: 0000
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: ff9a | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : ff9a | In2 : xxxx | Sel : 0 | Out: ff9a
+W2 Addr Src: 		In1 : 6 | In2 : f | Sel : 1 | Out: f
+
+
+
+
+
+#                 105 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0012
+IF  : 9402 | ID : f468 | EX : f487 | M : fff1 | WB : f155
+////////Register File//////////
+0 : 0f00 | 1  : 0050 | 2  : ff0f | 3 : 0050
+4 : 0040 | 5  : ff9a | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0065
+
+////////ALU//////////
+ opcode: 7 | in1: 0040 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : 0 | neg : 1
+/////////Writeback////////////
+WB1: En : 1 | Wd : 1 | Wa : 0000
+WB2: En : 1 | Wd : f | Wa : 0050
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0014 | Out : 0012 | Lock : 0 | Flush : 0
+Instruction: 		In : 9402 | Out : f468 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0111001000 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : f468 | Out : f487 | Lock : 0 | Flush : 0
+Dat1: 			In : 0040 | Out : 0040 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0065 | Out : 0065 | Lock : 0 | Flush : 0
+SE: 			In : 0068 | Out : ff87 | Lock : 0 | Flush : 0 
+Address: 		In : 0012 | Out : 0010 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000001 | Out : 001000010 | Lock : 0 | Flush : 0
+Instruction: 		In : f487 | Out : fff1 | Lock : 0 | Flush : 0
+Result: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0040 | Out : 0000 | Lock : 0 | Flush : 0
+Address: 		In : ff1e | Out : fff0 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 01110 | Lock : 0 | Flush : 0
+Instruction: 		In : fff1 | Out : f155 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0050 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0014 | In2 : fff0 | Sel : 0 | Out: 0014
+ERR:  			In1 : 0014 | In2 : 0000 | Sel : 0 | Out: 0014
+////////////EX///////////////
+ALU SRC: 		In1 : 0040 | In2 : ff87 | Sel : 0 | Out: 0040
+ALU SRC2: 		In1 : 0000 | In2 : 0065 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0040 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0040
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 5 | In2 : f | Sel : 1 | Out: f
+
+
+
+
+
+#                 115 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0014
+IF  : a690 | ID : 9402 | EX : f468 | M : f487 | WB : fff1
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0040 | 5  : ff9a | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0050
+
+////////ALU//////////
+ opcode: 8 | in1: 0000 | in2 : 00ff | result : 0000 | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : f | Wa : 0000
+WB2: En : 0 | Wd : f | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0016 | Out : 0014 | Lock : 0 | Flush : 0
+Instruction: 		In : a690 | Out : 9402 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001011000 | Out : 0111001000 | Lock : 0 | Flush : 0
+Instruction: 		In : 9402 | Out : f468 | Lock : 0 | Flush : 0
+Dat1: 			In : 0040 | Out : 0040 | Lock : 0 | Flush : 0 
+Dat2: 			In : 00ff | Out : 00ff | Lock : 0 | Flush : 0 
+Dat15: 			In : 0050 | Out : 0050 | Lock : 0 | Flush : 0
+SE: 			In : 0002 | Out : 0068 | Lock : 0 | Flush : 0 
+Address: 		In : 0014 | Out : 0012 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 111000000 | Out : 001000001 | Lock : 0 | Flush : 0
+Instruction: 		In : f468 | Out : f487 | Lock : 0 | Flush : 0
+Result: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0040 | Out : 0040 | Lock : 0 | Flush : 0
+Address: 		In : 00e2 | Out : ff1e | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : f487 | Out : fff1 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0016 | In2 : ff1e | Sel : 0 | Out: 0016
+ERR:  			In1 : 0016 | In2 : 0000 | Sel : 0 | Out: 0016
+////////////EX///////////////
+ALU SRC: 		In1 : 0040 | In2 : 0068 | Sel : 0 | Out: 0040
+ALU SRC2: 		In1 : 00ff | In2 : 0050 | Sel : 0 | Out: 00ff
+HAZ1 			In1 : 0040 | In2 : 0000 | In3: 0000 | Sel : 01 | Out: 0000
+HAZ2: 			In1 : 00ff | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 00ff
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : f | In2 : f | Sel : 0 | Out: f
+
+
+
+
+
+#                 125 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0016
+IF  : b690 | ID : a690 | EX : 9402 | M : f468 | WB : f487
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0040 | 5  : ff9a | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 2 | in1: 0000 | in2 : 0f00 | result : 0000 | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 4 | Wa : 0000
+WB2: En : 0 | Wd : 8 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0018 | Out : 0016 | Lock : 0 | Flush : 0
+Instruction: 		In : b690 | Out : a690 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0000111101 | Out : 0001011000 | Lock : 0 | Flush : 0
+Instruction: 		In : a690 | Out : 9402 | Lock : 0 | Flush : 0
+Dat1: 			In : 0040 | Out : 0040 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0f00 | Out : 0f00 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ff90 | Out : 0002 | Lock : 0 | Flush : 0 
+Address: 		In : 0016 | Out : 0014 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000000 | Out : 111000000 | Lock : 0 | Flush : 0
+Instruction: 		In : 9402 | Out : f468 | Lock : 0 | Flush : 0
+Result: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0040 | Out : 0040 | Lock : 0 | Flush : 0
+Address: 		In : 0018 | Out : 00e2 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 01110 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : f468 | Out : f487 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0018 | In2 : 00e2 | Sel : 0 | Out: 0018
+ERR:  			In1 : 0018 | In2 : 0000 | Sel : 0 | Out: 0018
+////////////EX///////////////
+ALU SRC: 		In1 : 0040 | In2 : 0002 | Sel : 1 | Out: 0002
+ALU SRC2: 		In1 : 0f00 | In2 : 0000 | Sel : 0 | Out: 0f00
+HAZ1 			In1 : 0002 | In2 : 0000 | In3: 0000 | Sel : 01 | Out: 0000
+HAZ2: 			In1 : 0f00 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0f00
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 8 | In2 : f | Sel : 0 | Out: 8
+
+
+
+
+
+#                 135 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0018
+IF  : c690 | ID : b690 | EX : a690 | M : 9402 | WB : f468
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: ff90 | in2 : 0000 | result : ff90 | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 4 | Wa : 0000
+WB2: En : 1 | Wd : f | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 001a | Out : 0018 | Lock : 0 | Flush : 0
+Instruction: 		In : c690 | Out : b690 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001011011 | Out : 0000111101 | Lock : 0 | Flush : 0
+Instruction: 		In : b690 | Out : a690 | Lock : 0 | Flush : 0
+Dat1: 			In : 00ff | Out : 00ff | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ff90 | Out : ff90 | Lock : 0 | Flush : 0 
+Address: 		In : 0018 | Out : 0016 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 000110100 | Out : 001000000 | Lock : 0 | Flush : 0
+Instruction: 		In : a690 | Out : 9402 | Lock : 0 | Flush : 0
+Result: 		In : ff90 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 00ff | Out : 0040 | Lock : 0 | Flush : 0
+Address: 		In : ff36 | Out : 0018 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 01110 | Lock : 0 | Flush : 0
+Instruction: 		In : 9402 | Out : f468 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 001a | In2 : 0018 | Sel : 0 | Out: 001a
+ERR:  			In1 : 001a | In2 : 0000 | Sel : 0 | Out: 001a
+////////////EX///////////////
+ALU SRC: 		In1 : 00ff | In2 : ff90 | Sel : 1 | Out: ff90
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : ff90 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: ff90
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 6 | In2 : f | Sel : 1 | Out: f
+
+
+
+
+
+#                 145 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 001a
+IF  : 6704 | ID : c690 | EX : b690 | M : a690 | WB : 9402
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: ff90 | in2 : 0000 | result : ff90 | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 4 | Wa : 0000
+WB2: En : 0 | Wd : 0 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 001c | Out : 001a | Lock : 1 | Flush : 0
+Instruction: 		In : 6704 | Out : c690 | Lock : 1 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001111100 | Out : 0001011011 | Lock : 1 | Flush : 0
+Instruction: 		In : c690 | Out : b690 | Lock : 1 | Flush : 0
+Dat1: 			In : 00ff | Out : 00ff | Lock : 1 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 0
+SE: 			In : ff90 | Out : ff90 | Lock : 1 | Flush : 0 
+Address: 		In : 001a | Out : 0018 | Lock : 1 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001001100 | Out : 000110100 | Lock : 0 | Flush : 1
+Instruction: 		In : b690 | Out : a690 | Lock : 0 | Flush : 1
+Result: 		In : ff90 | Out : ff90 | Lock : 0 | Flush : 1 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 1 
+Dat1: 			In : 00ff | Out : 00ff | Lock : 0 | Flush : 1
+Address: 		In : ff38 | Out : ff36 | Lock : 0 | Flush : 1
+
+/////M/WB///////
+Controls: 		In : 10001 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : a690 | Out : 9402 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : ff90 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 001c | In2 : ff36 | Sel : 0 | Out: 001c
+ERR:  			In1 : 001c | In2 : 0000 | Sel : 0 | Out: 001c
+////////////EX///////////////
+ALU SRC: 		In1 : 00ff | In2 : ff90 | Sel : 1 | Out: ff90
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : ff90 | In2 : ff90 | In3: 0000 | Sel : 01 | Out: ff90
+HAZ2: 			In1 : 0000 | In2 : ff90 | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : 0 | Out: 0
+
+
+
+
+
+#                 155 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 001a
+IF  : 6704 | ID : c690 | EX : b690 | M : 0000 | WB : a690
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: ff90 | in2 : 0000 | result : ff90 | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 0 | Wd : 6 | Wa : xxxx
+WB2: En : 0 | Wd : 9 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 001c | Out : 001a | Lock : 0 | Flush : 0
+Instruction: 		In : 6704 | Out : c690 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001111100 | Out : 0001011011 | Lock : 0 | Flush : 0
+Instruction: 		In : c690 | Out : b690 | Lock : 0 | Flush : 0
+Dat1: 			In : 00ff | Out : 00ff | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ff90 | Out : ff90 | Lock : 0 | Flush : 0 
+Address: 		In : 001a | Out : 0018 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001001100 | Out : 000000000 | Lock : 0 | Flush : 0
+Instruction: 		In : b690 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : ff90 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 00ff | Out : 0000 | Lock : 0 | Flush : 0
+Address: 		In : ff38 | Out : 0000 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00000 | Out : 10001 | Lock : 0 | Flush : 0
+Instruction: 		In : 0000 | Out : a690 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : ff90 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 001c | In2 : 0000 | Sel : 0 | Out: 001c
+ERR:  			In1 : 001c | In2 : 0000 | Sel : 0 | Out: 001c
+////////////EX///////////////
+ALU SRC: 		In1 : 00ff | In2 : ff90 | Sel : 1 | Out: ff90
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : ff90 | In2 : 0000 | In3: ff90 | Sel : 10 | Out: ff90
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: ff90 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : ff90 | In2 : xxxx | Sel : 1 | Out: xxxx
+W2 Addr Src: 		In1 : 9 | In2 : f | Sel : 0 | Out: 9
+
+
+
+
+
+#                 165 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 001c
+IF  : fb10 | ID : 6704 | EX : c690 | M : b690 | WB : 0000
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: ff90 | in2 : 0000 | result : ff90 | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 0 | Wd : 0 | Wa : 0000
+WB2: En : 0 | Wd : 0 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 001e | Out : 001c | Lock : 0 | Flush : 0
+Instruction: 		In : fb10 | Out : 6704 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 1000001000 | Out : 0001111100 | Lock : 0 | Flush : 0
+Instruction: 		In : 6704 | Out : c690 | Lock : 0 | Flush : 0
+Dat1: 			In : 00ff | Out : 00ff | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0004 | Out : ff90 | Lock : 0 | Flush : 0 
+Address: 		In : 001c | Out : 001a | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001110000 | Out : 001001100 | Lock : 0 | Flush : 0
+Instruction: 		In : c690 | Out : b690 | Lock : 0 | Flush : 0
+Result: 		In : ff90 | Out : ff90 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 00ff | Out : 00ff | Lock : 0 | Flush : 0
+Address: 		In : ff3a | Out : ff38 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00101 | Out : 00000 | Lock : 0 | Flush : 0
+Instruction: 		In : b690 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : ff90 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 001e | In2 : ff38 | Sel : 0 | Out: 001e
+ERR:  			In1 : 001e | In2 : 0000 | Sel : 0 | Out: 001e
+////////////EX///////////////
+ALU SRC: 		In1 : 00ff | In2 : ff90 | Sel : 1 | Out: ff90
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : ff90 | In2 : ff90 | In3: 0000 | Sel : 01 | Out: ff90
+HAZ2: 			In1 : 0000 | In2 : ff90 | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : 0 | Out: 0
+
+
+
+
+
+#                 175 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 001e
+IF  : 5705 | ID : fb10 | EX : 6704 | M : c690 | WB : b690
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : 00ff | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 4 | in1: ff88 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 6 | Wa : ff90
+WB2: En : 0 | Wd : 9 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0020 | Out : 001e | Lock : 0 | Flush : 0
+Instruction: 		In : 5705 | Out : fb10 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : 1000001000 | Lock : 0 | Flush : 0
+Instruction: 		In : fb10 | Out : 6704 | Lock : 0 | Flush : 0
+Dat1: 			In : ff88 | Out : ff88 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0f00 | Out : 0f00 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0010 | Out : 0004 | Lock : 0 | Flush : 0 
+Address: 		In : 001e | Out : 001c | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 000000000 | Out : 001110000 | Lock : 0 | Flush : 0
+Instruction: 		In : 6704 | Out : c690 | Lock : 0 | Flush : 0
+Result: 		In : 0000 | Out : ff90 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : ff88 | Out : 00ff | Lock : 0 | Flush : 0
+Address: 		In : 0024 | Out : ff3a | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 10100 | Out : 00101 | Lock : 0 | Flush : 0
+Instruction: 		In : c690 | Out : b690 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : ff90 | Out : ff90 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0020 | In2 : ff3a | Sel : 0 | Out: 0020
+ERR:  			In1 : 0020 | In2 : 0000 | Sel : 0 | Out: 0020
+////////////EX///////////////
+ALU SRC: 		In1 : ff88 | In2 : 0004 | Sel : 0 | Out: ff88
+ALU SRC2: 		In1 : 0f00 | In2 : 0000 | Sel : 1 | Out: 0000
+HAZ1 			In1 : ff88 | In2 : ff90 | In3: ff90 | Sel : 00 | Out: ff88
+HAZ2: 			In1 : 0000 | In2 : ff90 | In3: ff90 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : ff90 | In2 : xxxx | Sel : 0 | Out: ff90
+W2 Addr Src: 		In1 : 9 | In2 : f | Sel : 0 | Out: 9
+
+
+
+
+
+#                 185 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0020
+IF  : fb20 | ID : 5705 | EX : fb10 | M : 6704 | WB : c690
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : 0090 | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: cccc | in2 : 0000 | result : cccc | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 6 | Wa : xxxx
+WB2: En : 0 | Wd : 9 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0022 | Out : 0020 | Lock : 0 | Flush : 0
+Instruction: 		In : fb20 | Out : 5705 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 1000001000 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : 5705 | Out : fb10 | Lock : 0 | Flush : 0
+Dat1: 			In : cccc | Out : cccc | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0005 | Out : 0010 | Lock : 0 | Flush : 0 
+Address: 		In : 0020 | Out : 001e | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000000 | Out : 000000000 | Lock : 0 | Flush : 0
+Instruction: 		In : fb10 | Out : 6704 | Lock : 0 | Flush : 0
+Result: 		In : cccc | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : cccc | Out : ff88 | Lock : 0 | Flush : 0
+Address: 		In : 003e | Out : 0024 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00000 | Out : 10100 | Lock : 0 | Flush : 0
+Instruction: 		In : 6704 | Out : c690 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : ff90 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0022 | In2 : 0024 | Sel : 0 | Out: 0022
+ERR:  			In1 : 0022 | In2 : 0000 | Sel : 0 | Out: 0022
+////////////EX///////////////
+ALU SRC: 		In1 : cccc | In2 : 0010 | Sel : 0 | Out: cccc
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : cccc | In2 : 0000 | In3: ff90 | Sel : 00 | Out: cccc
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: ff90 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : ff90 | In2 : xxxx | Sel : 1 | Out: xxxx
+W2 Addr Src: 		In1 : 9 | In2 : f | Sel : 0 | Out: 9
+
+
+
+
+
+#                 195 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0022
+IF  : 4702 | ID : fb20 | EX : 5705 | M : fb10 | WB : 6704
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 5 | in1: 0000 | in2 : 0000 | result : xxxx | remainder : xxxx | zero : 1 | neg : 0
+/////////Writeback////////////
+WB1: En : 0 | Wd : 7 | Wa : 0000
+WB2: En : 0 | Wd : 0 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0024 | Out : 0022 | Lock : 0 | Flush : 0
+Instruction: 		In : 4702 | Out : fb20 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : 1000001000 | Lock : 0 | Flush : 0
+Instruction: 		In : fb20 | Out : 5705 | Lock : 0 | Flush : 0
+Dat1: 			In : ff88 | Out : ff88 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0f00 | Out : 0f00 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0020 | Out : 0005 | Lock : 0 | Flush : 0 
+Address: 		In : 0022 | Out : 0020 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 000000010 | Out : 001000000 | Lock : 0 | Flush : 0
+Instruction: 		In : 5705 | Out : fb10 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : cccc | Lock : 0 | Flush : 0 
+Remainder: 		In : xxxx | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : ff88 | Out : cccc | Lock : 0 | Flush : 0
+Address: 		In : 002a | Out : 003e | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00000 | Lock : 0 | Flush : 0
+Instruction: 		In : fb10 | Out : 6704 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : cccc | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0024 | In2 : 003e | Sel : 0 | Out: 0024
+ERR:  			In1 : 0024 | In2 : 0000 | Sel : 0 | Out: 0024
+////////////EX///////////////
+ALU SRC: 		In1 : ff88 | In2 : 0005 | Sel : 0 | Out: ff88
+ALU SRC2: 		In1 : 0f00 | In2 : 0000 | Sel : 1 | Out: 0000
+HAZ1 			In1 : ff88 | In2 : cccc | In3: 0000 | Sel : 10 | Out: 0000
+HAZ2: 			In1 : 0000 | In2 : cccc | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : 0 | Out: 0
+
+
+
+
+
+#                 205 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0024
+IF  : f110 | ID : 4702 | EX : fb20 | M : 5705 | WB : fb10
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: cccc | in2 : ff0f | result : cbdb | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : b | Wa : cccc
+WB2: En : 0 | Wd : 1 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0026 | Out : 0024 | Lock : 0 | Flush : 0
+Instruction: 		In : f110 | Out : 4702 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 1000001000 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : 4702 | Out : fb20 | Lock : 0 | Flush : 0
+Dat1: 			In : cccc | Out : cccc | Lock : 0 | Flush : 0 
+Dat2: 			In : ff0f | Out : ff0f | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0002 | Out : 0020 | Lock : 0 | Flush : 0 
+Address: 		In : 0024 | Out : 0022 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000000 | Out : 000000010 | Lock : 0 | Flush : 0
+Instruction: 		In : fb20 | Out : 5705 | Lock : 0 | Flush : 0
+Result: 		In : cbdb | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : xxxx | Lock : 0 | Flush : 0 
+Dat1: 			In : cccc | Out : ff88 | Lock : 0 | Flush : 0
+Address: 		In : 0062 | Out : 002a | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00000 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : 5705 | Out : fb10 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : xxxx | Out : cccc | Lock : 0 | Flush : 0
+Dat1: 			In : xxxx | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0026 | In2 : 002a | Sel : 0 | Out: 0026
+ERR:  			In1 : 0026 | In2 : 0000 | Sel : 0 | Out: 0026
+////////////EX///////////////
+ALU SRC: 		In1 : cccc | In2 : 0020 | Sel : 0 | Out: cccc
+ALU SRC2: 		In1 : ff0f | In2 : 0000 | Sel : 0 | Out: ff0f
+HAZ1 			In1 : cccc | In2 : xxxx | In3: cccc | Sel : 10 | Out: cccc
+HAZ2: 			In1 : ff0f | In2 : xxxx | In3: cccc | Sel : 00 | Out: ff0f
+////////////WB///////////////
+Mem to Reg:  		In1 : cccc | In2 : xxxx | Sel : 0 | Out: cccc
+W2 Addr Src: 		In1 : 1 | In2 : f | Sel : 0 | Out: 1
+
+
+
+
+
+#                 215 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0026
+IF  : f110 | ID : f110 | EX : 4702 | M : fb20 | WB : 5705
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 2 | in1: xxxx | in2 : 0000 | result : cbdb | remainder : 0000 | zero : x | neg : x
+/////////Writeback////////////
+WB1: En : 0 | Wd : 7 | Wa : xxxx
+WB2: En : 0 | Wd : 0 | Wa : xxxx
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0028 | Out : 0026 | Lock : 0 | Flush : 0
+Instruction: 		In : f110 | Out : f110 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : 1000001000 | Lock : 0 | Flush : 0
+Instruction: 		In : f110 | Out : 4702 | Lock : 0 | Flush : 0
+Dat1: 			In : ff88 | Out : ff88 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0f00 | Out : 0f00 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0010 | Out : 0002 | Lock : 0 | Flush : 0 
+Address: 		In : 0026 | Out : 0024 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 0000000xx | Out : 001000000 | Lock : 0 | Flush : 0
+Instruction: 		In : 4702 | Out : fb20 | Lock : 0 | Flush : 0
+Result: 		In : cbdb | Out : cbdb | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : ff88 | Out : cccc | Lock : 0 | Flush : 0
+Address: 		In : 0028 | Out : 0062 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00000 | Lock : 0 | Flush : 0
+Instruction: 		In : fb20 | Out : 5705 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : cbdb | Out : xxxx | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : xxxx | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0028 | In2 : 0062 | Sel : 0 | Out: 0028
+ERR:  			In1 : 0028 | In2 : 0000 | Sel : 0 | Out: 0028
+////////////EX///////////////
+ALU SRC: 		In1 : ff88 | In2 : 0002 | Sel : 0 | Out: ff88
+ALU SRC2: 		In1 : 0f00 | In2 : 0000 | Sel : 1 | Out: 0000
+HAZ1 			In1 : ff88 | In2 : cbdb | In3: xxxx | Sel : 10 | Out: xxxx
+HAZ2: 			In1 : 0000 | In2 : cbdb | In3: xxxx | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : xxxx | In2 : xxxx | Sel : 0 | Out: xxxx
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : 0 | Out: 0
+
+
+
+
+
+#                 225 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0028
+IF  : c890 | ID : f110 | EX : f110 | M : 4702 | WB : fb20
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cccc
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: 0000 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : 1 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : b | Wa : cbdb
+WB2: En : 0 | Wd : 2 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 002a | Out : 0028 | Lock : 0 | Flush : 0
+Instruction: 		In : c890 | Out : f110 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : f110 | Out : f110 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : 0010 | Out : 0010 | Lock : 0 | Flush : 0 
+Address: 		In : 0028 | Out : 0026 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000010 | Out : 0000000xx | Lock : 0 | Flush : 0
+Instruction: 		In : f110 | Out : 4702 | Lock : 0 | Flush : 0
+Result: 		In : 0000 | Out : cbdb | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0000 | Out : ff88 | Lock : 0 | Flush : 0
+Address: 		In : 0046 | Out : 0028 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00000 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : 4702 | Out : fb20 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : cbdb | Out : cbdb | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 002a | In2 : 0028 | Sel : 0 | Out: 002a
+ERR:  			In1 : 002a | In2 : 0000 | Sel : 0 | Out: 002a
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : 0010 | Sel : 0 | Out: 0000
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0000 | In2 : cbdb | In3: cbdb | Sel : 00 | Out: 0000
+HAZ2: 			In1 : 0000 | In2 : cbdb | In3: cbdb | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : cbdb | In2 : xxxx | Sel : 0 | Out: cbdb
+W2 Addr Src: 		In1 : 2 | In2 : f | Sel : 0 | Out: 2
+
+
+
+
+
+#                 235 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 002a
+IF  : f880 | ID : c890 | EX : f110 | M : f110 | WB : 4702
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cbdb
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: 0000 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : 1 | neg : 0
+/////////Writeback////////////
+WB1: En : 0 | Wd : 7 | Wa : cbdb
+WB2: En : 0 | Wd : 0 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 002c | Out : 002a | Lock : 0 | Flush : 0
+Instruction: 		In : f880 | Out : c890 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001111100 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : c890 | Out : f110 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ff90 | Out : 0010 | Lock : 0 | Flush : 0 
+Address: 		In : 002a | Out : 0028 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000010 | Out : 001000010 | Lock : 0 | Flush : 0
+Instruction: 		In : f110 | Out : f110 | Lock : 0 | Flush : 0
+Result: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Address: 		In : 0048 | Out : 0046 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00000 | Lock : 0 | Flush : 0
+Instruction: 		In : f110 | Out : 4702 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : cbdb | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 002c | In2 : 0046 | Sel : 0 | Out: 002c
+ERR:  			In1 : 002c | In2 : 0000 | Sel : 0 | Out: 002c
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : 0010 | Sel : 0 | Out: 0000
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0000 | In2 : 0000 | In3: cbdb | Sel : 01 | Out: 0000
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: cbdb | Sel : 01 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : cbdb | In2 : xxxx | Sel : 0 | Out: cbdb
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : 0 | Out: 0
+
+
+
+
+
+#                 245 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 002c
+IF  : d890 | ID : f880 | EX : c890 | M : f110 | WB : f110
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cbdb
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: ff90 | in2 : 0000 | result : ff90 | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 1 | Wa : 0000
+WB2: En : 0 | Wd : 1 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 002e | Out : 002c | Lock : 0 | Flush : 0
+Instruction: 		In : d890 | Out : f880 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : 0001111100 | Lock : 0 | Flush : 0
+Instruction: 		In : f880 | Out : c890 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ff80 | Out : ff90 | Lock : 0 | Flush : 0 
+Address: 		In : 002c | Out : 002a | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001110000 | Out : 001000010 | Lock : 0 | Flush : 0
+Instruction: 		In : c890 | Out : f110 | Lock : 0 | Flush : 0
+Result: 		In : ff90 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Address: 		In : ff4a | Out : 0048 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : f110 | Out : f110 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 002e | In2 : 0048 | Sel : 0 | Out: 002e
+ERR:  			In1 : 002e | In2 : 0000 | Sel : 0 | Out: 002e
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : ff90 | Sel : 1 | Out: ff90
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : ff90 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: ff90
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 1 | In2 : f | Sel : 0 | Out: 1
+
+
+
+
+
+#                 255 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 002e
+IF  : ca90 | ID : d890 | EX : f880 | M : c890 | WB : f110
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cbdb
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: ff90 | in2 : ff90 | result : ff20 | remainder : 0000 | zero : 1 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 1 | Wa : 0000
+WB2: En : 0 | Wd : 1 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0030 | Out : 002e | Lock : 1 | Flush : 0
+Instruction: 		In : ca90 | Out : d890 | Lock : 1 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001011010 | Out : 0001001000 | Lock : 1 | Flush : 0
+Instruction: 		In : d890 | Out : f880 | Lock : 1 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 0
+SE: 			In : ff90 | Out : ff80 | Lock : 1 | Flush : 0 
+Address: 		In : 002e | Out : 002c | Lock : 1 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000010 | Out : 001110000 | Lock : 0 | Flush : 1
+Instruction: 		In : f880 | Out : c890 | Lock : 0 | Flush : 1
+Result: 		In : ff20 | Out : ff90 | Lock : 0 | Flush : 1 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 1 
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 1
+Address: 		In : ff2c | Out : ff4a | Lock : 0 | Flush : 1
+
+/////M/WB///////
+Controls: 		In : 10100 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : c890 | Out : f110 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : ff90 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0030 | In2 : ff4a | Sel : 0 | Out: 0030
+ERR:  			In1 : 0030 | In2 : 0000 | Sel : 0 | Out: 0030
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : ff80 | Sel : 0 | Out: 0000
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0000 | In2 : ff90 | In3: 0000 | Sel : 01 | Out: ff90
+HAZ2: 			In1 : 0000 | In2 : ff90 | In3: 0000 | Sel : 01 | Out: ff90
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 1 | In2 : f | Sel : 0 | Out: 1
+
+
+
+
+
+#                 265 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 002e
+IF  : ca90 | ID : d890 | EX : f880 | M : 0000 | WB : c890
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : 0000 | 9  : 0000 | A  : 0000 | B : cbdb
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: ff90 | in2 : ff90 | result : ff20 | remainder : 0000 | zero : 1 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 8 | Wa : xxxx
+WB2: En : 0 | Wd : 9 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0030 | Out : 002e | Lock : 0 | Flush : 0
+Instruction: 		In : ca90 | Out : d890 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001011010 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : d890 | Out : f880 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ff90 | Out : ff80 | Lock : 0 | Flush : 0 
+Address: 		In : 002e | Out : 002c | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000010 | Out : 000000000 | Lock : 0 | Flush : 0
+Instruction: 		In : f880 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : ff20 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Address: 		In : ff2c | Out : 0000 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00000 | Out : 10100 | Lock : 0 | Flush : 0
+Instruction: 		In : 0000 | Out : c890 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : ff90 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0030 | In2 : 0000 | Sel : 0 | Out: 0030
+ERR:  			In1 : 0030 | In2 : 0000 | Sel : 0 | Out: 0030
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : ff80 | Sel : 0 | Out: 0000
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0000 | In2 : 0000 | In3: ff90 | Sel : 10 | Out: ff90
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: ff90 | Sel : 10 | Out: ff90
+////////////WB///////////////
+Mem to Reg:  		In1 : ff90 | In2 : xxxx | Sel : 1 | Out: xxxx
+W2 Addr Src: 		In1 : 9 | In2 : f | Sel : 0 | Out: 9
+
+
+
+
+
+#                 275 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0030
+IF  : fcc0 | ID : ca90 | EX : d890 | M : f880 | WB : 0000
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : xxxx | 9  : 0000 | A  : 0000 | B : cbdb
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: ff20 | in2 : 0000 | result : ff20 | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 0 | Wd : 0 | Wa : 0000
+WB2: En : 0 | Wd : 0 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0032 | Out : 0030 | Lock : 0 | Flush : 0
+Instruction: 		In : fcc0 | Out : ca90 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001111100 | Out : 0001011010 | Lock : 0 | Flush : 0
+Instruction: 		In : ca90 | Out : d890 | Lock : 0 | Flush : 0
+Dat1: 			In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ff90 | Out : ff90 | Lock : 0 | Flush : 0 
+Address: 		In : 0030 | Out : 002e | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001001000 | Out : 001000010 | Lock : 0 | Flush : 0
+Instruction: 		In : d890 | Out : f880 | Lock : 0 | Flush : 0
+Result: 		In : ff20 | Out : ff20 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : xxxx | Out : 0000 | Lock : 0 | Flush : 0
+Address: 		In : ff4e | Out : ff2c | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00000 | Lock : 0 | Flush : 0
+Instruction: 		In : f880 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : ff20 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0032 | In2 : ff2c | Sel : 0 | Out: 0032
+ERR:  			In1 : 0032 | In2 : 0000 | Sel : 0 | Out: 0032
+////////////EX///////////////
+ALU SRC: 		In1 : xxxx | In2 : ff90 | Sel : 1 | Out: ff90
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : ff90 | In2 : ff20 | In3: 0000 | Sel : 01 | Out: ff20
+HAZ2: 			In1 : 0000 | In2 : ff20 | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : 0 | Out: 0
+
+
+
+
+
+#                 285 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0032
+IF  : fdd1 | ID : fcc0 | EX : ca90 | M : d890 | WB : f880
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : xxxx | 9  : 0000 | A  : 0000 | B : cbdb
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: ff90 | in2 : 0000 | result : ff90 | remainder : 0000 | zero : 0 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 8 | Wa : ff20
+WB2: En : 0 | Wd : 8 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0034 | Out : 0032 | Lock : 0 | Flush : 0
+Instruction: 		In : fdd1 | Out : fcc0 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : 0001111100 | Lock : 0 | Flush : 0
+Instruction: 		In : fcc0 | Out : ca90 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ffc0 | Out : ff90 | Lock : 0 | Flush : 0 
+Address: 		In : 0032 | Out : 0030 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001110000 | Out : 001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : ca90 | Out : d890 | Lock : 0 | Flush : 0
+Result: 		In : ff90 | Out : ff20 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0000 | Out : xxxx | Lock : 0 | Flush : 0
+Address: 		In : ff50 | Out : ff4e | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : d890 | Out : f880 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : ff20 | Out : ff20 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0034 | In2 : ff4e | Sel : 0 | Out: 0034
+ERR:  			In1 : 0034 | In2 : 0000 | Sel : 0 | Out: 0034
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : ff90 | Sel : 1 | Out: ff90
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : ff90 | In2 : ff20 | In3: ff20 | Sel : 00 | Out: ff90
+HAZ2: 			In1 : 0000 | In2 : ff20 | In3: ff20 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : ff20 | In2 : xxxx | Sel : 0 | Out: ff20
+W2 Addr Src: 		In1 : 8 | In2 : f | Sel : 0 | Out: 8
+
+
+
+
+
+#                 295 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0034
+IF  : fcd0 | ID : fdd1 | EX : fcc0 | M : ca90 | WB : d890
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : ff20 | 9  : 0000 | A  : 0000 | B : cbdb
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: 0002 | in2 : 0002 | result : 0004 | remainder : 0000 | zero : 1 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : 8 | Wa : ff20
+WB2: En : 0 | Wd : 9 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0036 | Out : 0034 | Lock : 0 | Flush : 0
+Instruction: 		In : fcd0 | Out : fdd1 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : fdd1 | Out : fcc0 | Lock : 0 | Flush : 0
+Dat1: 			In : 0002 | Out : 0002 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0002 | Out : 0002 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ffd1 | Out : ffc0 | Lock : 0 | Flush : 0 
+Address: 		In : 0034 | Out : 0032 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000010 | Out : 001110000 | Lock : 0 | Flush : 0
+Instruction: 		In : fcc0 | Out : ca90 | Lock : 0 | Flush : 0
+Result: 		In : 0004 | Out : ff90 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0002 | Out : 0000 | Lock : 0 | Flush : 0
+Address: 		In : ffb2 | Out : ff50 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 10100 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : ca90 | Out : d890 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : ff90 | Out : ff20 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0036 | In2 : ff50 | Sel : 0 | Out: 0036
+ERR:  			In1 : 0036 | In2 : 0000 | Sel : 0 | Out: 0036
+////////////EX///////////////
+ALU SRC: 		In1 : 0002 | In2 : ffc0 | Sel : 0 | Out: 0002
+ALU SRC2: 		In1 : 0002 | In2 : 0000 | Sel : 0 | Out: 0002
+HAZ1 			In1 : 0002 | In2 : ff90 | In3: ff20 | Sel : 00 | Out: 0002
+HAZ2: 			In1 : 0002 | In2 : ff90 | In3: ff20 | Sel : 00 | Out: 0002
+////////////WB///////////////
+Mem to Reg:  		In1 : ff20 | In2 : xxxx | Sel : 0 | Out: ff20
+W2 Addr Src: 		In1 : 9 | In2 : f | Sel : 0 | Out: 9
+
+
+
+
+
+#                 305 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0036
+IF  : efff | ID : fcd0 | EX : fdd1 | M : fcc0 | WB : ca90
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : ff20 | 9  : 0000 | A  : 0000 | B : cbdb
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 1 | in1: 0000 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : 1 | neg : 0
+/////////Writeback////////////
+WB1: En : 1 | Wd : a | Wa : xxxx
+WB2: En : 0 | Wd : 9 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0038 | Out : 0036 | Lock : 0 | Flush : 0
+Instruction: 		In : efff | Out : fcd0 | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0001001000 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : fcd0 | Out : fdd1 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ffd0 | Out : ffd1 | Lock : 0 | Flush : 0 
+Address: 		In : 0036 | Out : 0034 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000010 | Out : 001000010 | Lock : 0 | Flush : 0
+Instruction: 		In : fdd1 | Out : fcc0 | Lock : 0 | Flush : 0
+Result: 		In : 0000 | Out : 0004 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0000 | Out : 0002 | Lock : 0 | Flush : 0
+Address: 		In : ffd6 | Out : ffb2 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 10100 | Lock : 0 | Flush : 0
+Instruction: 		In : fcc0 | Out : ca90 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0004 | Out : ff90 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0038 | In2 : ffb2 | Sel : 0 | Out: 0038
+ERR:  			In1 : 0038 | In2 : 0000 | Sel : 0 | Out: 0038
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : ffd1 | Sel : 0 | Out: 0000
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0000 | In2 : 0004 | In3: ff90 | Sel : 00 | Out: 0000
+HAZ2: 			In1 : 0000 | In2 : 0004 | In3: ff90 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : ff90 | In2 : xxxx | Sel : 1 | Out: xxxx
+W2 Addr Src: 		In1 : 9 | In2 : f | Sel : 0 | Out: 9
+
+
+
+
+
+#                 315 : rst 1 | err register : 0000 |
+
+///////Instructions////////
+IF Address: 0038
+IF  : 0000 | ID : efff | EX : fcd0 | M : fdd1 | WB : fcc0
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : ff20 | 9  : 0000 | A  : xxxx | B : cbdb
+C : 0002 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: 0 | in1: 0004 | in2 : 0000 | result : 0004 | remainder : 0000 | zero : 0 | neg : 1
+/////////Writeback////////////
+WB1: En : 1 | Wd : c | Wa : 0004
+WB2: En : 0 | Wd : c | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 003a | Out : 0038 | Lock : 0 | Flush : 0
+Instruction: 		In : 0000 | Out : efff | Lock : 0 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0000000000 | Out : 0001001000 | Lock : 0 | Flush : 0
+Instruction: 		In : efff | Out : fcd0 | Lock : 0 | Flush : 0
+Dat1: 			In : 0002 | Out : 0002 | Lock : 0 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+SE: 			In : ffff | Out : ffd0 | Lock : 0 | Flush : 0 
+Address: 		In : 0038 | Out : 0036 | Lock : 0 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 001000001 | Out : 001000010 | Lock : 0 | Flush : 0
+Instruction: 		In : fcd0 | Out : fdd1 | Lock : 0 | Flush : 0
+Result: 		In : 0004 | Out : 0000 | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+Dat1: 			In : 0002 | Out : 0000 | Lock : 0 | Flush : 0
+Address: 		In : ffd6 | Out : ffd6 | Lock : 0 | Flush : 0
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : fdd1 | Out : fcc0 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0004 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 003a | In2 : ffd6 | Sel : 0 | Out: 003a
+ERR:  			In1 : 003a | In2 : 0000 | Sel : 0 | Out: 003a
+////////////EX///////////////
+ALU SRC: 		In1 : 0002 | In2 : ffd0 | Sel : 0 | Out: 0002
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0002 | In2 : 0000 | In3: 0004 | Sel : 10 | Out: 0004
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: 0004 | Sel : 01 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0004 | In2 : xxxx | Sel : 0 | Out: 0004
+W2 Addr Src: 		In1 : c | In2 : f | Sel : 0 | Out: c
+
+
+
+
+
+#                 325 : rst 1 | err register : 0010 |
+
+///////Instructions////////
+IF Address: 003a
+IF  : 0000 | ID : 0000 | EX : efff | M : fcd0 | WB : fdd1
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : ff20 | 9  : 0000 | A  : xxxx | B : cbdb
+C : 0004 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: f | in1: 0000 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : 0 | neg : 1
+/////////Writeback////////////
+WB1: En : 1 | Wd : d | Wa : 0000
+WB2: En : 0 | Wd : d | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 003c | Out : 003a | Lock : 1 | Flush : 0
+Instruction: 		In : 0000 | Out : 0000 | Lock : 1 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0000000000 | Out : 0000000000 | Lock : 1 | Flush : 0
+Instruction: 		In : 0000 | Out : efff | Lock : 1 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 0 
+Dat2: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 0
+SE: 			In : 0000 | Out : ffff | Lock : 1 | Flush : 0 
+Address: 		In : 003a | Out : 0038 | Lock : 1 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 000000001 | Out : 001000001 | Lock : 0 | Flush : 1
+Instruction: 		In : efff | Out : fcd0 | Lock : 0 | Flush : 1
+Result: 		In : 0000 | Out : 0004 | Lock : 0 | Flush : 1 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 1 
+Dat1: 			In : 0000 | Out : 0002 | Lock : 0 | Flush : 1
+Address: 		In : 0036 | Out : ffd6 | Lock : 0 | Flush : 1
+
+/////M/WB///////
+Controls: 		In : 00100 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : fcd0 | Out : fdd1 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0004 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 003c | In2 : ffd6 | Sel : 0 | Out: 003c
+ERR:  			In1 : 003c | In2 : 0000 | Sel : 1 | Out: 0000
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : ffff | Sel : 0 | Out: 0000
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0000 | In2 : 0004 | In3: 0000 | Sel : 00 | Out: 0000
+HAZ2: 			In1 : 0000 | In2 : 0004 | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : d | In2 : f | Sel : 0 | Out: d
+
+
+
+
+
+#                 335 : rst 1 | err register : 0010 |
+
+///////Instructions////////
+IF Address: 0000
+IF  : f120 | ID : 0000 | EX : efff | M : 0000 | WB : fcd0
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : ff20 | 9  : 0000 | A  : xxxx | B : cbdb
+C : 0004 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: f | in1: 0000 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : 0 | neg : 1
+/////////Writeback////////////
+WB1: En : 1 | Wd : c | Wa : 0004
+WB2: En : 0 | Wd : d | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0002 | Out : 003a | Lock : 1 | Flush : 0
+Instruction: 		In : f120 | Out : 0000 | Lock : 1 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0000000000 | Out : 0000000000 | Lock : 1 | Flush : 0
+Instruction: 		In : 0000 | Out : efff | Lock : 1 | Flush : 0
+Dat1: 			In : 0f00 | Out : 0000 | Lock : 1 | Flush : 0 
+Dat2: 			In : 0f00 | Out : 0000 | Lock : 1 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 0
+SE: 			In : 0000 | Out : ffff | Lock : 1 | Flush : 0 
+Address: 		In : 003a | Out : 0038 | Lock : 1 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 000000001 | Out : 000000000 | Lock : 0 | Flush : 1
+Instruction: 		In : efff | Out : 0000 | Lock : 0 | Flush : 1
+Result: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 1 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 1 
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 1
+Address: 		In : 0036 | Out : 0000 | Lock : 0 | Flush : 1
+
+/////M/WB///////
+Controls: 		In : 00000 | Out : 00100 | Lock : 0 | Flush : 0
+Instruction: 		In : 0000 | Out : fcd0 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0004 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0002 | In2 : 0000 | Sel : 0 | Out: 0002
+ERR:  			In1 : 0002 | In2 : 0000 | Sel : 1 | Out: 0000
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : ffff | Sel : 0 | Out: 0000
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0000 | In2 : 0000 | In3: 0004 | Sel : 00 | Out: 0000
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: 0004 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0004 | In2 : xxxx | Sel : 0 | Out: 0004
+W2 Addr Src: 		In1 : d | In2 : f | Sel : 0 | Out: d
+
+
+
+
+
+#                 345 : rst 1 | err register : 0010 |
+
+///////Instructions////////
+IF Address: 0000
+IF  : f120 | ID : 0000 | EX : efff | M : 0000 | WB : 0000
+////////Register File//////////
+0 : 0f00 | 1  : 0000 | 2  : ff0f | 3 : 0050
+4 : 0000 | 5  : ff9a | 6  : xxxx | 7 : ff88
+8 : ff20 | 9  : 0000 | A  : xxxx | B : cbdb
+C : 0004 | D  : 0000 | E  : 0000 | F : 0000
+
+////////ALU//////////
+ opcode: f | in1: 0000 | in2 : 0000 | result : 0000 | remainder : 0000 | zero : 0 | neg : 1
+/////////Writeback////////////
+WB1: En : 0 | Wd : 0 | Wa : 0000
+WB2: En : 0 | Wd : 0 | Wa : 0000
+/////////////Buffers//////////////////////////////////////////
+
+/////IF/ID/////
+Address: 		In : 0002 | Out : 003a | Lock : 1 | Flush : 0
+Instruction: 		In : f120 | Out : 0000 | Lock : 1 | Flush : 0
+
+/////ID/EX////////
+Controls: 		In : 0000000000 | Out : 0000000000 | Lock : 1 | Flush : 0
+Instruction: 		In : 0000 | Out : efff | Lock : 1 | Flush : 0
+Dat1: 			In : 0f00 | Out : 0000 | Lock : 1 | Flush : 0 
+Dat2: 			In : 0f00 | Out : 0000 | Lock : 1 | Flush : 0 
+Dat15: 			In : 0000 | Out : 0000 | Lock : 1 | Flush : 0
+SE: 			In : 0000 | Out : ffff | Lock : 1 | Flush : 0 
+Address: 		In : 003a | Out : 0038 | Lock : 1 | Flush : 0 
+
+/////EX/M///////
+Controls: 		In : 000000001 | Out : 000000000 | Lock : 0 | Flush : 1
+Instruction: 		In : efff | Out : 0000 | Lock : 0 | Flush : 1
+Result: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 1 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 1 
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 1
+Address: 		In : 0036 | Out : 0000 | Lock : 0 | Flush : 1
+
+/////M/WB///////
+Controls: 		In : 00000 | Out : 00000 | Lock : 0 | Flush : 0
+Instruction: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Result: 		In : xxxx | Out : xxxx | Lock : 0 | Flush : 0 
+Remainder: 		In : 0000 | Out : 0000 | Lock : 0 | Flush : 0
+Dat1: 			In : 0000 | Out : 0000 | Lock : 0 | Flush : 0 
+
+////////////Multiplexers///////////
+////////////IF//////////////
+PC SRC: 		In1 : 0002 | In2 : 0000 | Sel : 0 | Out: 0002
+ERR:  			In1 : 0002 | In2 : 0000 | Sel : 1 | Out: 0000
+////////////EX///////////////
+ALU SRC: 		In1 : 0000 | In2 : ffff | Sel : 0 | Out: 0000
+ALU SRC2: 		In1 : 0000 | In2 : 0000 | Sel : 0 | Out: 0000
+HAZ1 			In1 : 0000 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0000
+HAZ2: 			In1 : 0000 | In2 : 0000 | In3: 0000 | Sel : 00 | Out: 0000
+////////////WB///////////////
+Mem to Reg:  		In1 : 0000 | In2 : xxxx | Sel : 0 | Out: 0000
+W2 Addr Src: 		In1 : 0 | In2 : f | Sel : 0 | Out: 0
+
+
+
+
+
+CONTROL ERROR (UNRECOGNIZED COMMAND?)
+
+$finish called from file "cpu_fixture.v", line 131.
+$finish at simulation time                 1000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1000
+CPU Time:      0.350 seconds;       Data structure size:   0.1Mb
+Tue Dec  5 14:57:47 2017

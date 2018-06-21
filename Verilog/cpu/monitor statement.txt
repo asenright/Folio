@@ -1,0 +1,62 @@
+$monitor("#", $time, " : rst %b\n///////Instructions////////\
+\nIF Address: %h\nIF  : %h | ID : %h | EX : %h | M : %h | WB : %h\
+\n////////Register File//////////\n0 : %h | 1  : %h | 2  : %h | 3 : %h\n4 : %h | 5  : %h | 6  : %h | 7 : %h\n8 : %h | 9  : %h | A  : %h | B : %h\nC : %h | D  : %h | E  : %h | F : %h\n\
+\n////////ALU Result////////// \nresult : %h | remainder : %h | zero : %b | neg : %b\
+\n/////////Writeback////////////\nWB1: En : %b | Wd : %h | Wa : %h\nWB2: En : %b | Wd : %h | Wa : %h\
+\n/////////////Buffers////////\
+\n/////IF/ID/////\
+\nAddress: 		In : %h | Out : %h | L : %b | F : %b\
+\nInstruction: 	In : %h | Out : %h | L : %b | F : %b\
+\n/////ID/EX////////\n\
+\nControls: 		In : %h | Out : %h | L : %b | F : %b\
+\nInstruction: 	In : %h | Out : %h | L : %b | F : %b\
+\nDat1: 			In : %h | Out : %h | L : %b | F : %b \
+\nDat2: 			In : %h | Out : %h | L : %b | F : %b \
+\nDat15: 			In : %h | Out : %h | L : %b | F : %b \
+\nSE: 			In : %h | Out : %h | L : %b | F : %b \
+\nAddress: 		In : %h | Out : %h | L : %b | F : %b \
+\n/////EX/M///////\n\
+\nControls: 		In : %h | Out : %h | L : %b | F : %b\
+\nInstruction: 	In : %h | Out : %h | L : %b | F : %b\
+\nResult: 		In : %h | Out : %h | L : %b | F : %b \
+\nRemainder: 		In : %h | Out : %h | L : %b | F : %b \
+\nDat1: 			In : %h | Out : %h | L : %b | F : %b \
+\n/////M/WB///////\
+\nControls: 		In : %h | Out : %h | L : %b | F : %b\
+\nInstruction: 	In : %h | Out : %h | L : %b | F : %b\
+\nResult: 		In : %h | Out : %h | L : %b | F : %b \
+\nRemainder: 		In : %h | Out : %h | L : %b | F : %b \
+\nDat1: 			In : %h | Out : %h | L : %b | F : %b \
+\n\n\n\n", 
+		proc.rf.rst, proc.IF_ADDR,
+		proc.IF_INSTRUCTION, proc.ID_INSTRUCTION, proc.EX_INSTRUCTION, proc.M_INSTRUCTION, proc.WB_INSTRUCTION,
+		proc.rf.registers[0], proc.rf.registers[1], proc.rf.registers[2], proc.rf.registers[3], 
+		proc.rf.registers[4], proc.rf.registers[5], proc.rf.registers[6], proc.rf.registers[7], 
+		proc.rf.registers[8], proc.rf.registers[9], proc.rf.registers[10], proc.rf.registers[11], 
+		proc.rf.registers[12], proc.rf.registers[13], proc.rf.registers[14], proc.rf.registers[15],
+		proc.alu.out, proc.alu.R15, proc.alu.zero, proc.alu.neg,
+		proc.rf.write_enable_1,  proc.rf.write_addr_1, proc.rf.write_data_1,
+		proc.rf.write_enable_2,  proc.rf.write_addr_2, proc.rf.write_data_2,
+		proc.IF_ID_BUFFER_ADDRESS.data_in, proc.IF_ID_BUFFER_ADDRESS.data_out, proc.IF_ID_BUFFER_ADDRESS.dis, proc.IF_ID_BUFFER_ADDRESS.flush,
+		proc.IF_ID_BUFFER_INSTRUCTION.data_in, proc.IF_ID_BUFFER_INSTRUCTION.data_out, proc.IF_ID_BUFFER_INSTRUCTION.dis, proc.IF_ID_BUFFER_INSTRUCTION.flush,
+		
+		proc.ID_EX_BUFFER_CONTROLS.data_in, proc.ID_EX_BUFFER_CONTROLS.data_out, proc.ID_EX_BUFFER_CONTROLS.dis, proc.ID_EX_BUFFER_CONTROLS.flush,
+		proc.ID_EX_BUFFER_INSTRUCTION.data_in, proc.ID_EX_BUFFER_INSTRUCTION.data_out, proc.ID_EX_BUFFER_INSTRUCTION.dis, proc.ID_EX_BUFFER_INSTRUCTION.flush,
+		proc.ID_EX_BUFFER_DAT_1.data_in, proc.ID_EX_BUFFER_DAT_1.data_out, proc.ID_EX_BUFFER_DAT_1.dis, proc.ID_EX_BUFFER_DAT_1.flush,
+		proc.ID_EX_BUFFER_DAT_2.data_in, proc.ID_EX_BUFFER_DAT_2.data_out, proc.ID_EX_BUFFER_DAT_2.dis, proc.ID_EX_BUFFER_DAT_2.flush,
+		proc.ID_EX_BUFFER_DAT_15.data_in, proc.ID_EX_BUFFER_DAT_15.data_out, proc.ID_EX_BUFFER_DAT_15.dis, proc.ID_EX_BUFFER_DAT_15.flush,
+		proc.ID_EX_BUFFER_SE.data_in, proc.ID_EX_BUFFER_SE.data_out, proc.ID_EX_BUFFER_SE.dis, proc.ID_EX_BUFFER_SE.flush,
+		
+		proc.EX_M_BUFFER_CONTROLS.data_in, proc.EX_M_BUFFER_CONTROLS.data_out, proc.EX_M_BUFFER_CONTROLS.dis, proc.EX_M_BUFFER_CONTROLS.flush,
+		proc.EX_M_BUFFER_INSTRUCTION.data_in, proc.EX_M_BUFFER_INSTRUCTION.data_out, proc.EX_M_BUFFER_INSTRUCTION.dis, proc.EX_M_BUFFER_INSTRUCTION.flush,
+		proc.EX_M_BUFFER_RESULT.data_in, proc.EX_M_BUFFER_RESULT.data_out, proc.EX_M_BUFFER_RESULT.dis, proc.EX_M_BUFFER_RESULT.flush,
+		proc.EX_M_BUFFER_REMAINDER.data_in, proc.EX_M_BUFFER_REMAINDER.data_out, proc.EX_M_BUFFER_REMAINDER.dis, proc.EX_M_BUFFER_REMAINDER.flush,
+		proc.EX_M_BUFFER_DAT_1.data_in, proc.EX_M_BUFFER_DAT_1.data_out, proc.EX_M_BUFFER_DAT_1.dis, proc.EX_M_BUFFER_DAT_1.flush,
+		
+		proc.M_WB_BUFFER_CONTROLS.data_in, proc.M_WB_BUFFER_CONTROLS.data_out, proc.M_WB_BUFFER_CONTROLS.dis, proc.M_WB_BUFFER_CONTROLS.flush,
+		proc.M_WB_BUFFER_INSTRUCTION.data_in, proc.M_WB_BUFFER_INSTRUCTION.data_out, proc.M_WB_BUFFER_INSTRUCTION.dis, proc.M_WB_BUFFER_INSTRUCTION.flush,
+		proc.M_WB_BUFFER_DATA_FROM_MEMORY.data_in, proc.M_WB_BUFFER_DATA_FROM_MEMORY.data_out, proc.M_WB_BUFFER_DATA_FROM_MEMORY.dis, proc.M_WB_BUFFER_DATA_FROM_MEMORY.flush,
+		proc.M_WB_BUFFER_RESULT.data_in, proc.M_WB_BUFFER_RESULT.data_out, proc.M_WB_BUFFER_RESULT.dis, proc.M_WB_BUFFER_RESULT.flush,
+		proc.M_WB_BUFFER_REMAINDER.data_in, proc.M_WB_BUFFER_REMAINDER.data_out, proc.M_WB_BUFFER_REMAINDER.dis, proc.M_WB_BUFFER_REMAINDER.flush
+		
+		);

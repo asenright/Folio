@@ -1,0 +1,39 @@
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  1 19:44 2017
+VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+ex: nop
+m: nop
+wb: nop
+Shouldn't forward anything
+#                   0: inst_ex: 0000 | inst_m: 0000 | inst_wb: 0000
+haz1:0 | haz2:0
+ex: add $0, $1
+m: add $1, $0
+wb: nop
+Should forward memory to instruction 1, which is dat1haz = 01 and dat2haz = 00
+#                  10: inst_ex: f010 | inst_m: f100 | inst_wb: 0000
+haz1:2 | haz2:1
+ex: add $5, $7
+add $5, $9
+add $7, $A
+Should get instructrion 1 from memory (dat1haz = 01)
+and instruction 2 from writeback (dat2haz = 10)
+#                  20: inst_ex: f570 | inst_m: f590 | inst_wb: f7a0
+haz1:1 | haz2:0
+ex: 
+nop
+add $0, $4Shouldn't forward anything
+#                  30: inst_ex: 0000 | inst_m: f000 | inst_wb: f040
+haz1:0 | haz2:0
+$stop at time 250 Scope: control_fixture File: forward_fixture.v Line: 47
+ucli% 
+ucli% 
+ucli% 
+ucli% 
+ucli% 
+ucli% Received SIGHUP (signal 1), exiting.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 250
+CPU Time:      0.350 seconds;       Data structure size:   0.0Mb
+Fri Dec  1 19:46:29 2017

@@ -1,0 +1,27 @@
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  1 19:40 2017
+VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+The file '/gaia/class/student/enrighta/cpe142/project/forward/inter.vpd' was opened successfully.
+ex: nop
+m: nop
+wb: nop
+#                   0: inst_ex: 0000 | inst_m: 0000 | inst_wb: 0000
+haz1:0 | haz2:0
+ex: add $0, $1
+m: add $1, $0
+wb: nop
+#                  10: inst_ex: f010 | inst_m: f100 | inst_wb: 0000
+haz1:2 | haz2:1
+ex: add $0, $1
+nop
+add $0, $4
+#                  20: inst_ex: f010 | inst_m: f000 | inst_wb: f040
+haz1:1 | haz2:0
+ex: 
+nop
+add $0, $4
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 250
+CPU Time:      0.100 seconds;       Data structure size:   0.0Mb
+Fri Dec  1 19:41:34 2017
